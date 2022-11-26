@@ -30,6 +30,20 @@ packer.init({
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
+  -- lspconfig
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+
+  -- cmp completion and other enhance
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  use 'hrsh7th/cmp-nvim-lsp-document-symbol'
+
   
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

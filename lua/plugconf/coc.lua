@@ -1,3 +1,5 @@
+local cocKeyMap = require("keybinding").cocKeyMap
+
 local COC = {}
 
 function COC.config()

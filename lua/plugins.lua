@@ -30,6 +30,9 @@ packer.init({
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
+  -- analysis boot time
+  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+
   -- coc
   use {'neoclide/coc.nvim', branch = 'release'}
 
@@ -61,14 +64,28 @@ return require('packer').startup(function(use)
   use 'junegunn/fzf'
   use {'junegunn/fzf.vim', run = 'cd ~/.fzf && ./install --all', after = "fzf" }
 
+  -- github copilot 
+  use { 'github/copilot.vim', event = 'InsertEnter' }
+
+  -- syntax highlight
+  use { 'nvim-treesitter/nvim-treesitter', config = "require('plugconf/treesitter').setup()", run = ':TSUpdate', event = 'BufRead' }
+  use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+
+  -- database ui
+  use { 'tpope/vim-dadbod' }
+  use { 'kristijanhusak/vim-dadbod-ui', config = "require('plugconf/nvim-dadbod').setup()", after = 'vim-dadbod' }
+
+  -- fast select
+   use { 'terryma/vim-expand-region', config = "require('plugconf/nvim-expand-region').setup()", event = 'CursorHold' }
+
+
+
   -- theme
+  use 'lifepillar/vim-solarized8'
   use 'sainnhe/everforest'
   use 'ellisonleao/gruvbox.nvim'
   use 'EdenEast/nightfox.nvim'
-  use({
-    'glepnir/zephyr-nvim',
-    requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
-  })
+  use 'glepnir/zephyr-nvim' 
   use 'folke/tokyonight.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim

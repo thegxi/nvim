@@ -22,9 +22,40 @@ keymap("v", "<c-k>", "5k",  opt)
 keymap("n", "<c-u>", "10k", opt)
 keymap("n", "<c-d>", "10j", opt)
 
+keymap("c", "<c-a>",      "<home>",     { noremap = true })
+keymap("c", "<c-e>",      "<end>",      { noremap = true })
+keymap("c", "<up>",       "<c-p>",      { noremap = true })
+keymap("c", "<down>",     "<c-n>",      { noremap = true })
+
+-- ========= virsual indent ========= 
+keymap("v", "<",          "<gv",        { noremap = true })
+keymap("v", ">",          ">gv",        { noremap = true })
+keymap("v", "<s-tab>",    "<gv",        { noremap = true })
+keymap("v", "<tab>",      ">gv",        { noremap = true })
+
 -- ========= fast save ========= 
-keymap("n", "<leader>w", ":w<cr>",  opt)
-keymap("n", "<leader>q", ":wq<cr>", opt)
+keymap("n", "<leader>w",   ":w<cr>",  opt)
+keymap("n", "<leader>q",   ":wq<cr>", opt)
+
+-- ========= move line ========= 
+keymap("n", "<a-up>",     ":m .-2<cr>",       opt)
+keymap("n", "<a-down>",   ":m .+1<cr>",       opt)
+keymap("i", "<a-up>",     "<esc>:m .-2<cr>i", opt)
+keymap("i", "<a-down>",   "<esc>:m .+1<cr>i", opt)
+keymap("v", "<a-up>",     ":m '<-2<cr>gv",    opt)
+keymap("v", "<a-down>",   ":m '>+1<cr>gv",    opt)
+
+-- ========= select text ========= 
+keymap("i", "<s-down>",   "<esc>vj",  { noremap = true })
+keymap("i", "<s-up>",     "<esc>vk",  { noremap = true })
+keymap("n", "<s-up>",     "Vk",       { noremap = true })
+keymap("n", "<s-down>",   "Vj",       { noremap = true })
+keymap("v", "<s-up>",     "k",        { noremap = true })
+keymap("v", "<s-down>",   "j",        { noremap = true })
+keymap("n", "<s-left>",   "vh",       { noremap = true })
+keymap("n", "<s-right>",  "vl",       { noremap = true })
+keymap("n", "<a-a>",      "ggVG",     { noremap = true })
+keymap("n", "a-s",        "vi{",      { noremap = true })
 
 -- ========= windows ========= 
 keymap("n", "sv",         ":vsp<cr><C-w>w", { noremap = true })

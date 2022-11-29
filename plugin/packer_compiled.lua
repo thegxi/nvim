@@ -130,6 +130,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "playground" },
+    config = { "require('plugconf/treesitter').setup()" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -151,7 +152,7 @@ _G.packer_plugins = {
       ["nvim-treesitter"] = true
     },
     loaded = false,
-    needs_bufread = false,
+    needs_bufread = true,
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/opt/playground",
     url = "https://github.com/nvim-treesitter/playground"
   },
@@ -164,6 +165,27 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/vim-comment",
     url = "https://github.com/yaocccc/vim-comment"
+  },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-ui"] = {
+    config = { "require('plugconf/nvim-dadbod').setup()" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/opt/vim-dadbod-ui",
+    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
+  },
+  ["vim-expand-region"] = {
+    config = { "require('plugconf/nvim-expand-region').setup()" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/opt/vim-expand-region",
+    url = "https://github.com/terryma/vim-expand-region"
   },
   ["vim-floaterm"] = {
     loaded = true,
@@ -202,6 +224,12 @@ time([[Defining packer_plugins]], false)
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd fzf ]]
 vim.cmd [[ packadd fzf.vim ]]
+vim.cmd [[ packadd vim-dadbod ]]
+vim.cmd [[ packadd vim-dadbod-ui ]]
+
+-- Config for: vim-dadbod-ui
+require('plugconf/nvim-dadbod').setup()
+
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
@@ -214,6 +242,7 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au CursorHold * ++once lua require("packer.load")({'vim-expand-region'}, { event = "CursorHold *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'vimcdoc'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.vim'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)

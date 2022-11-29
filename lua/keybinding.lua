@@ -113,6 +113,10 @@ pluginKeyMap.cocKeyMap = function()
 end 
 
 -- ========= nvim-tree ========= 
+-- open 10 hight 10 lines float terminal
+keymap("n", "tt", ":below 10sp | term<cr>a", opt)
+
+-- ========= nvim-tree ========= 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opt)
 pluginKeyMap.treeKeyMap = {
   { key = "P",          action = "cd" },
@@ -125,6 +129,7 @@ pluginKeyMap.treeKeyMap = {
   { key = "<",          action = "prev_git_item" },
   { key = "?",          action = "toggle_help" },
   { key = "A",          action = "create" },
+  { key = "d",          action = "remove" },
 }
 
 return pluginKeyMap

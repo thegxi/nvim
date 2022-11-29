@@ -38,7 +38,7 @@ nvim_tree.setup({
     mappings = {
       -- 只用内置快捷键
       custom_only = true,
-  --    list = treeKeyMap,
+      list = treeKeyMap,
     },
     -- 不显示行数
     number = false,

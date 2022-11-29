@@ -84,15 +84,37 @@ _G.packer_plugins = {
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
   },
+  fzf = {
+    loaded = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/opt/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nvim-lines.lua"] = {
+    loaded = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/nvim-lines.lua",
+    url = "https://github.com/yaocccc/nvim-lines.lua"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -120,6 +142,23 @@ _G.packer_plugins = {
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-comment"] = {
+    loaded = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/vim-comment",
+    url = "https://github.com/yaocccc/vim-comment"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
+  vimcdoc = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/thegx/.local/share/nvim/site/pack/packer/opt/vimcdoc",
+    url = "https://github.com/yianwillis/vimcdoc"
+  },
   ["zephyr-nvim"] = {
     loaded = true,
     path = "/Users/thegx/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
@@ -128,6 +167,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd fzf ]]
+vim.cmd [[ packadd fzf.vim ]]
+time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'vimcdoc'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

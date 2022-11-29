@@ -41,6 +41,25 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+ 
+  -- markdown
+  use 'iamcco/markdown-preview.nvim'
+
+  -- status line 
+  use 'yaocccc/nvim-lines.lua'
+
+  -- float terminal
+  use 'voldikss/vim-floaterm'
+
+  -- chinese help document
+  use {'yianwillis/vimcdoc', event = 'VimEnter'}
+
+  -- nvim comment 
+  use 'yaocccc/vim-comment'
+
+  -- fzf
+  use 'junegunn/fzf'
+  use {'junegunn/fzf.vim', run = 'cd ~/.fzf && ./install --all', after = "fzf" }
 
   -- theme
   use 'sainnhe/everforest'

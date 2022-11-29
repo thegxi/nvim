@@ -1,2 +1,7 @@
 require("plugconf/coc").config()
 require("plugconf/nvim-tree")
+require("plugconf/markdown").config()
+require("plugconf/nvim-line").config()
+require("plugconf/nvim-floaterm").config()
+require("plugconf/nvim-comment").config()
+require("plugconf/nvim-fzf").config()

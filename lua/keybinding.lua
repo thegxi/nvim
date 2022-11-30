@@ -78,6 +78,9 @@ keymap("v", "<a-right>",  ":bn<cr>", opt)
 keymap("i", "<a-left>",   ":bp<cr>", opt)
 keymap("i", "<a-right>",  ":bn<cr>", opt)
 
+-- ========= lazygit ========= 
+keymap("n", "<a-g>", ":new<cr>:term lazygit<cr>i", opt)
+
 local pluginKeyMap = {}
 
 -- ========= coc.nvim ========= 

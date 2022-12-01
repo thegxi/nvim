@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
   }
  
   -- markdown
-  use 'iamcco/markdown-preview.nvim'
+  use{ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", cmd = "MarkdownPreview", ft =  "markdown" }
 
   -- status line 
   use 'yaocccc/nvim-lines.lua'

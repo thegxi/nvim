@@ -58,14 +58,14 @@ keymap("n", "<a-a>",      "ggVG",     { noremap = true })
 keymap("n", "a-s",        "vi{",      { noremap = true })
 
 -- ========= windows ========= 
-keymap("n", "sv",         ":vsp<cr><C-w>w", { noremap = true })
-keymap("n", "sp",         ":sp<cr><C-w>w",  { noremap = true })
+keymap("n", "sv",         ":vsp<cr><c-w>w", { noremap = true })
+keymap("n", "sp",         ":sp<cr><c-w>w",  { noremap = true })
 keymap("n", "sc",         ":close<cr>",     { noremap = true })
 keymap("n", "so",         ":only<cr>",      { noremap = true })
-keymap("n", "s<left>",    "<c-w>h",         { noremap = true })
-keymap("n", "s<right>",   "<c-w>l",         { noremap = true })
-keymap("n", "s<up>",      "<c-w>k",         { noremap = true })
-keymap("n", "s<down>",    "<c-w>j",         { noremap = true })
+keymap("n", "<leader>h",  "<c-w>h",         { noremap = true })
+keymap("n", "<leader>l",  "<c-w>l",         { noremap = true })
+keymap("n", "<leader>k",  "<c-w>k",         { noremap = true })
+keymap("n", "<leader>j",  "<c-w>j",         { noremap = true })
 keymap("n", "<a-space>",  "<c-w>w",         { noremap = true })
 
 -- ========= buffers ========= 
@@ -115,9 +115,12 @@ pluginKeyMap.cocKeyMap = function()
   keymap("n", "\\g",      ":call coc#config('git.addGBlameToVirtualText',  !get(g:coc_user_config, 'git.addGBlameToVirtualText', 0)) | call nvim_buf_clear_namespace(bufnr(), -1, line('.') - 1, line('.'))<cr>", opt)
 end 
 
--- ========= nvim-tree ========= 
+-- ========= float terminal ========= 
 -- open 10 hight 10 lines float terminal
 keymap("n", "tt", ":below 10sp | term<cr>a", opt)
+
+-- ========= markdown ========= 
+keymap("n", "<leader>p", ":MarkdownPreviewToggle<cr>", opt)
 
 -- ========= nvim-tree ========= 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opt)

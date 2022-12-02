@@ -34,8 +34,10 @@ keymap("v", "<s-tab>",    "<gv",        { noremap = true })
 keymap("v", "<tab>",      ">gv",        { noremap = true })
 
 -- ========= fast save ========= 
-keymap("n", "<leader>w",   ":w<cr>",  opt)
-keymap("n", "<leader>q",   ":wq<cr>", opt)
+keymap("n", "<leader>w",   ":w<cr>",          opt)
+keymap("n", "<leader>q",   ":wq<cr>",         opt)
+keymap("i", "<leader>w",   "<esc>:w<cr>i",     opt)
+keymap("i", "<leader>q",   "<esc>:wq<cr>",    opt)
 
 -- ========= move line ========= 
 keymap("n", "<a-up>",     ":m .-2<cr>",       opt)

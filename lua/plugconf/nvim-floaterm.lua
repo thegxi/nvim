@@ -14,7 +14,7 @@ function SetFTToggleMap(key, name, cmd, pre_cmd)
 end
 
 function CONF.config()
-    local run_cmd = { javascript = 'node', typescript = 'ts-node', html = 'google-chrome-stable', python = 'python', go = 'go run', sh = 'bash', lua = 'lua' }
+    local run_cmd = { javascript = 'node', typescript = 'ts-node', html = 'open -a Google\\ Chrome', python = 'python', go = 'go run', sh = 'bash', lua = 'lua' }
     vim.g.floaterm_title = ''
     vim.g.floaterm_width = 0.8
     vim.g.floaterm_height = 0.8

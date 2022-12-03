@@ -140,6 +140,7 @@ pluginKeyMap.treeKeyMap = {
   { key = "d",          action = "remove" },
   { key = "h",          action = "toggle_custom" },
   { key = "r",          action = "rename" },
+  { key = "c",          action = "copy" },
   { key = "gy",         action = "copy_absoulute_path" },
 }
 

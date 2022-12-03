@@ -138,6 +138,9 @@ pluginKeyMap.treeKeyMap = {
   { key = "?",          action = "toggle_help" },
   { key = "A",          action = "create" },
   { key = "d",          action = "remove" },
+  { key = "h",          action = "toggle_custom" },
+  { key = "r",          action = "rename" },
+  { key = "gy",         action = "copy_absoulute_path" },
 }
 
 return pluginKeyMap

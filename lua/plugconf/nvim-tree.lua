@@ -1,5 +1,3 @@
-local TREE = {}
-
 local status, nvim_tree = pcall(require, 'nvim-tree')
 if not status then
   vim.notify("Not found nvim-tree")
@@ -23,9 +21,9 @@ nvim_tree.setup({
   },
   filters = {
     -- 隐藏 .文件
-    dotfiles = true,
+    dotfiles = false,
     -- 隐藏 node_modules 文件夹
-    -- custom = { "node_modules" },
+    custom = { "node_modules", ".idea", ".vscode", ".project", ".DS_Store", ".settings", ".git" },
   },
   view = {
     -- 宽度

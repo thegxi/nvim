@@ -33,9 +33,6 @@ return require('packer').startup(function(use)
   -- analysis boot time
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 
-  -- coc
-  use {'neoclide/coc.nvim', branch = 'release'}
-
   -- file explorer
   use {
     'nvim-tree/nvim-tree.lua',
@@ -44,12 +41,12 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
- 
+
   -- markdown
   use{ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", cmd = "MarkdownPreview", ft =  "markdown" }
 
-  -- status line 
-  use 'yaocccc/nvim-lines.lua'
+  -- status line
+  use 'nvim-lualine/lualine.nvim'
 
   -- float terminal
   use 'voldikss/vim-floaterm'
@@ -57,14 +54,14 @@ return require('packer').startup(function(use)
   -- chinese help document
   use {'yianwillis/vimcdoc', event = 'VimEnter'}
 
-  -- nvim comment 
+  -- nvim comment
   use 'yaocccc/vim-comment'
 
   -- fzf
   use 'junegunn/fzf'
   use {'junegunn/fzf.vim', run = 'cd ~/.fzf && ./install --all', after = "fzf" }
 
-  -- github copilot 
+  -- github copilot
   use { 'github/copilot.vim', event = 'InsertEnter' }
 
   -- syntax highlight
@@ -85,7 +82,7 @@ return require('packer').startup(function(use)
   use 'sainnhe/everforest'
   use 'ellisonleao/gruvbox.nvim'
   use 'EdenEast/nightfox.nvim'
-  use 'glepnir/zephyr-nvim' 
+  use 'glepnir/zephyr-nvim'
   use 'folke/tokyonight.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim

@@ -72,7 +72,7 @@ keymap("n", "<a-space>",  "<c-w>w",         { noremap = true })
 
 -- ========= buffers ========= 
 keymap("n", "W",          ":bw<cr>", opt)
-keymap("n", "ss",         ":bn<cr>", opt)
+keymap("n", "<ctrl><s><tab>",         ":bn<cr>", opt)
 keymap("n", "<a-left>",   ":bp<cr>", opt)
 keymap("n", "<a-right>",  ":bn<cr>", opt)
 keymap("v", "<a-left>",   ":bp<cr>", opt)

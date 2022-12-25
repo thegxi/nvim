@@ -75,7 +75,42 @@ return require('packer').startup(function(use)
   -- fast select
    use { 'terryma/vim-expand-region', config = "require('plugconf/nvim-expand-region').setup()", event = 'CursorHold' }
 
+  -- lsp
+  -- installer
+   use({ "williamboman/mason.nvim" })
+   use({ "williamboman/mason-lspconfig.nvim" })
+   -- Lspconfig
+   use({ "neovim/nvim-lspconfig" })
+   -- 补全引擎
+   use("hrsh7th/nvim-cmp")
+   -- Snippet 引擎
+   use("L3MON4D3/LuaSnip")
+   use("saadparwaiz1/cmp_luasnip")
+   -- 补全源
+   use("hrsh7th/cmp-vsnip")
+   use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
+   use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+   use("hrsh7th/cmp-path") -- { name = 'path' }
+   use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+   use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
+   -- 常见编程语言代码段
+   use("rafamadriz/friendly-snippets")
+   -- UI 增强
+   use("onsails/lspkind-nvim")
+   use("tami5/lspsaga.nvim")
+   -- 代码格式化
+   use("mhartington/formatter.nvim")
+   use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+   -- TypeScript 增强
+   use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+   use("jose-elias-alvarez/typescript.nvim")
 
+   -- Lua 增强
+   use("folke/neodev.nvim")
+   -- JSON 增强
+   use("b0o/schemastore.nvim")
+   -- Rust 增强
+   use("simrat39/rust-tools.nvim")
 
   -- theme
   use 'lifepillar/vim-solarized8'
@@ -83,7 +118,6 @@ return require('packer').startup(function(use)
   use 'ellisonleao/gruvbox.nvim'
   use 'EdenEast/nightfox.nvim'
   use 'glepnir/zephyr-nvim'
-  use 'folke/tokyonight.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

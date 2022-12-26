@@ -59,14 +59,13 @@ return require('packer').startup(function(use)
 
   -- fzf
   use 'junegunn/fzf'
-  use {'junegunn/fzf.vim', run = 'cd ~/.fzf && ./install --all', after = "fzf" }
+  use { 'junegunn/fzf.vim', run = 'cd ~/.fzf && ./install --all', after = "fzf" }
 
   -- github copilot
   use { 'github/copilot.vim', event = 'InsertEnter' }
 
   -- syntax highlight
-  use { 'nvim-treesitter/nvim-treesitter', config = "require('plugconf/treesitter').setup()", run = ':TSUpdate', event = 'BufRead' }
-  use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- database ui
   use { 'tpope/vim-dadbod' }

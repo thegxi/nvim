@@ -40,12 +40,12 @@ local opts = {
     end
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     -- 绑定快捷键
-    require("keybindings").mapLSP(buf_set_keymap)
+    require("keybinding").mapLSP(buf_set_keymap)
   end,
 }
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- opts.capabilities = capabilities
 
 -- 查看目录等信息
@@ -53,7 +53,7 @@ local opts = {
 
 return {
   on_setup = function(server)
-    opts = require("lua-dev").setup({ lspconfig = opts })
+    opts = require("neodev").setup({ lspconfig = opts })
     server.setup(opts)
   end,
 }

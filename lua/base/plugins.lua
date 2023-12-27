@@ -16,3 +16,5 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
   require("plugins.ui"),
 })
+
+vim.cmd[[colorscheme tokyonight]]

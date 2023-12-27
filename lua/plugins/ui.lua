@@ -3,9 +3,9 @@ return {
   { 'projekt0n/github-nvim-theme' },
   { 'joshdick/onedark.vim' },
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
-    opts = {},
+    config = require('plugins.ui.tokyonight'),
   }
 }

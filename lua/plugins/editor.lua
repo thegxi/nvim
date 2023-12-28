@@ -17,5 +17,12 @@ return {
         comment_visual = '<leader>/'
       }
     }
+  },
+  -- 普通用户 sudo 保存文件
+  {
+    'lambdalisue/suda.vim',
+    lazy = true,
+    cmd = { 'SudaRead', 'SudaWrite' },
+    config = require('plugins.editor.suda')
   }
 }

@@ -21,5 +21,12 @@ return {
     lazy = true,
     event = { 'BufRead', 'BufNewFile' },
     config = require('plugins.ui.indent-blankline')
+  },
+  -- Notify
+  {
+    'rcarriga/nvim-notify',
+    lazy = true,
+    event = 'VeryLazy',
+    config = require('plugins.ui.notify')
   }
 }

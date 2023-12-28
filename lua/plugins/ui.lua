@@ -28,5 +28,12 @@ return {
     lazy = true,
     event = 'VeryLazy',
     config = require('plugins.ui.notify')
+  },
+  -- Colorizer 
+  {
+    'NvChad/nvim-colorizer.lua',
+    lazy = true,
+    event = { 'BufRead', 'BufNewFile' },
+    config = require('plugins.ui.colorizer')
   }
 }

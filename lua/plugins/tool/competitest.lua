@@ -127,4 +127,24 @@ return function()
     open_received_contests = true,
     replace_received_testcases = false,
   }
+  vim.api.nvim_buf_create_user_command(0, 'CP', function(opt)
+    if opt.args == 'true' then
+      vim.keymap.set("n", "rr", "<cmd>CompetiTest run<CR>", { buffer = true })
+      vim.keymap.set("n", "ra", "<cmd>CompetiTest add_testcase<CR>", { buffer = true })
+      vim.keymap.set("n", "re", "<cmd>CompetiTest edit_testcase<CR>", { buffer = true })
+      vim.keymap.set("n", "ri", "<cmd>CompetiTest receive testcases<CR>", { buffer = true })
+      vim.keymap.set("n", "rd", "<cmd>CompetiTest delete_testcase<CR>", { buffer = true })
+      vim.keymap.set("n", "rm", function()
+        vim.cmd('silent ! rm -f "./%<" && rm -f "./%<"_(in|out)put*.txt')
+        vim.notify(" 󰆴 Clearn")
+      end, { buffer = true })
+    elseif opt.args == 'false' then
+      vim.keymap.del('n', 'rr', { buffer = true })
+      vim.keymap.del('n', 'ra', { buffer = true })
+      vim.keymap.del('n', 're', { buffer = true })
+      vim.keymap.del('n', 'ri', { buffer = true })
+      vim.keymap.del('n', 'rd', { buffer = true })
+      vim.keymap.del('n', 'rm', { buffer = true })
+    end
+  end, { nargs = 1 })
 end

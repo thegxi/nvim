@@ -14,5 +14,12 @@ return {
     lazy = true,
     event = { 'BufRead', 'BufNewFile' },
     config = require('plugins.ui.gitsigns')
+  },
+  -- Indent
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    lazy = true,
+    event = { 'BufRead', 'BufNewFile' },
+    config = require('plugins.ui.indent-blankline')
   }
 }

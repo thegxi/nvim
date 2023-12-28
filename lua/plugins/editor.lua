@@ -11,6 +11,11 @@ return {
     'echasnovski/mini.comment',
     lazy = true,
     event = { 'BufReadPre', 'BufNewFile' },
-    config = require('plugins.editor.comment')
+    opts = {
+      mappings = {
+        comment_line = '<leader>/',
+        comment_visual = '<leader>/'
+      }
+    }
   }
 }

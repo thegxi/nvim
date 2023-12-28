@@ -6,6 +6,13 @@ return {
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
-    config = require('plugins.ui.tokyonight'),
+    config = require('plugins.ui.tokyonight')
+  },
+  -- Git info
+  { 
+    'lewis6991/gitsigns.nvim',
+    lazy = true,
+    event = { 'BufRead', 'BufNewFile' },
+    config = require('plugins.ui.gitsigns')
   }
 }

@@ -1,3 +1,3 @@
-require('base.options')
-require('base.keymaps')
-require('base.plugins')
+require('core.options')
+require('core.plugins')
+require('core.keymaps')

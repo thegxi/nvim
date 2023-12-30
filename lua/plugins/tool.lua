@@ -43,5 +43,11 @@ return {
       vim.o.timeoutlen = 300
     end,
     config = require('plugins.config.tool.which-key')
+  },
+  -- Navigate your code with search labels,
+  {
+    'folke/flash.nvim',
+    event = "VeryLazy",
+    config = require('plugins.config.tool.flash')
   }
 }

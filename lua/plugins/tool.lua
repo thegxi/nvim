@@ -22,5 +22,12 @@ return {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = require('plugins.config.tool.telescope')
+  },
+  -- File manager
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    config = require('plugins.config.tool.nvim-tree')
   }
 }

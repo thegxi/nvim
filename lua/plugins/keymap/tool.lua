@@ -7,7 +7,9 @@ local map_cmd = util.map_cmd
 local map_callback = util.map_callback
 
 local plugin_map = {
-  -- Plugin nvterm
+  --[[ =============================
+       ========Plugin nvterm========
+       =============================--]]
 	--["n|<leader>tl"] = map_callback(function() terminal.send(ft_cmds[vim.bo.filetype]) end):with_noremap():with_silent():with_desc('terminal'),
 	--["n|<leader>th"] = map_callback(function() terminal.toggle('horizontal') end):with_noremap():with_silent():with_desc('terminal: horizontal'),
 	--["n|<leader>tv"] = map_callback(function() terminal.toggle('vertical') end):with_noremap():with_silent():with_desc('terminal: vertical'),
@@ -45,7 +47,9 @@ local plugin_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("git: Toggle lazygit"),
-  -- Plugin: telescope
+  --[[ =============================
+       ========Plugin telescope=====
+       =============================--]]
 	["n|<leader>f"] = map_callback(function()
 			_command_panel()
 		end)
@@ -88,7 +92,12 @@ local plugin_map = {
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
-
+  --[[ =============================
+       ========Plugin nvim-tree=====
+       =============================--]]
+	["n|<leader>ne"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("tree: file manager"),
+	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("tree: find file"),
+	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("tree: refresh file")
 }
 
 util.nvim_load_mapping(plugin_map)

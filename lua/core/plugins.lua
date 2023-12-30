@@ -17,7 +17,12 @@ require("lazy").setup({
   require("plugins.ui"),
   require("plugins.completion"),
   require("plugins.tool"),
-  require("plugins.editor")
+  require("plugins.editor"),
 })
 
+-- Plugin keymap
+require("plugins.keymap.tool")
+require("plugins.keymap.editor")
+
+-- Theme
 vim.cmd[[colorscheme tokyonight]]

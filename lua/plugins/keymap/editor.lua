@@ -1,4 +1,4 @@
-local util = require('plugins.util')
+local util = require('plugins.util.map')
 local map_cr = util.map_cr
 local map_cu = util.map_cu
 local map_cmd = util.map_cmd

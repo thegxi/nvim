@@ -29,5 +29,10 @@ return {
     version = '*',
     lazy = false,
     config = require('plugins.config.tool.nvim-tree')
+  },
+  -- Showing diagnostics, references, telescope results, quickfix
+  {
+    'folke/trouble.nvim',
+    config = require('plugins.config.tool.trouble')
   }
 }

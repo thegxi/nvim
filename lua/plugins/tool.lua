@@ -16,5 +16,11 @@ return {
     'akinsho/toggleterm.nvim',
     version = '*',
     config = require('plugins.config.tool.toggleterm')
+  },
+  -- Like search
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = require('plugins.config.tool.telescope')
   }
 }

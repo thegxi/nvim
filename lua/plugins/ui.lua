@@ -40,5 +40,10 @@ return {
     lazy = true,
     event = { 'BufRead', 'BufNewFile' },
     config = require('plugins.config.ui.colorizer')
+  },
+  -- Git
+  {
+    'ewis6991/gitsigns.nvim',
+    config = require('plugins.config.ui.gitsigns')
   }
 }

@@ -24,5 +24,12 @@ return {
     lazy = true,
     cmd = { 'SudaRead', 'SudaWrite' },
     config = require('plugins.config.editor.suda')
+  },
+  -- Syntax highlight
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    dependencies = { 'hiphish/rainbow-delimiters.nvim' },
+    config = require('plugins.config.editor.nvim-treesitter')
   }
 }

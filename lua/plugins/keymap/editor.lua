@@ -5,7 +5,9 @@ local map_cmd = util.map_cmd
 local map_callback = util.map_callback
 
 local plugin_map = {
-  -- Plugin suda.vim
+  --[[ =============================
+       ========Plugin suda.vimn=====
+       =============================--]]
 	["n|<C-S-s>"] = map_cu("SudaWrite"):with_silent():with_noremap():with_desc("editn: Save file using sudo"),
 }
 

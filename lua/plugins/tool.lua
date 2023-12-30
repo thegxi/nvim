@@ -7,8 +7,14 @@ return {
     dependencies = 'MunifTanjim/nui.nvim',
     config = require('plugins.config.tool.competitest')
   },
+  -- Terminal
   {
     'NvChad/nvterm',
     config = require('plugins.config.tool.nvterm')
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    config = require('plugins.config.tool.toggleterm')
   }
 }

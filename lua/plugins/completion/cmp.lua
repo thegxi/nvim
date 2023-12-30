@@ -1,4 +1,24 @@
 return function()
+  local icons = {
+		kind = require('plugins.util.icons').get('kind'),
+		type = require('plugins.util.icons').get('type'),
+		cmp = require('plugins.util.icons').get('cmp'),
+	}
+  -- Add additional capabilities supported by nvim-cmp
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  local lspconfig = require('lspconfig')
+  local servers = { 'bashls', 'clangd', 'jsonls', 'lua_ls', 'html' }
+  
+
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup{
+      -- on_attach = my custom on_attach
+      capabilities = capabilities
+    }
+  end
+
+  local cmp = require('cmp')
+
   require('cmp').setup({
     experimental = {
       ghost_text = true
@@ -6,10 +26,10 @@ return function()
     formatting = {
       fields = { 'abbr', 'menu', 'kind' },
       format = function(entry, vim_item)
-      local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
+        local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
 				-- load lspkind icons
 				vim_item.kind =
-					string.format(" %s  %s", lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
+					string.format(' %s  %s', lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
 
 				vim_item.menu = setmetatable({
 					cmp_tabnine = "[TN]",
@@ -40,6 +60,11 @@ return function()
 			end,
     },
     mapping = cmp.mapping.preset.insert({
+			["<C-p>"] = cmp.mapping.select_prev_item(),
+			["<C-n>"] = cmp.mapping.select_next_item(),
+			["<C-d>"] = cmp.mapping.scroll_docs(-4),
+			["<C-f>"] = cmp.mapping.scroll_docs(4),
+			["<C-w>"] = cmp.mapping.close(),
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -65,18 +90,13 @@ return function()
         require('luasnip').lsp_expand(args.body)
       end
     },
-    sources = cmp.config.sources({
+    sources = {
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
-      -- { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-      }, 
-      {
       { name = 'buffer' },
       { name = 'path' },
-    }),
+    },
     window = {
       completion = {
         winhighlight = 'Normal:Pmenu,FlostBorder:Pmenu,Search:None',

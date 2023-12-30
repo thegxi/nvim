@@ -29,6 +29,11 @@ return {
     event = 'VeryLazy',
     config = require('plugins.config.ui.notify')
   },
+  {
+    'j-hui/fidget.nvim',
+    tag = 'v1.0.0',
+    config = require('plugins.config.ui.fidget')
+  },
   -- Colorizer 
   {
     'NvChad/nvim-colorizer.lua',

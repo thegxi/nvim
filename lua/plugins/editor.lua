@@ -18,6 +18,11 @@ return {
       }
     }
   },
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+    config = require('plugins.config.editor.comment')
+  },
   -- sudo 保存文件
   {
     'lambdalisue/suda.vim',

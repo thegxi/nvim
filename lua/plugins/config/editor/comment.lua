@@ -1,34 +1,45 @@
 return function()
-   require('mini.comment').setup({
-     options = { -- Function to compute custom 'commentstring' (optional) custom_commentstring = nil, -- Whether to ignore blank lines ignore_blank_line = false, -- Whether to recognize as comment only lines without indent
-      start_of_line = false,
-
-      -- Whether to ensure single space pad for comment parts
-      pad_comment_parts = true,
+  require('Comment').setup({
+     ---Add a space b/w comment and the line
+    padding = true,
+    ---Whether the cursor should stay at its position
+    sticky = true,
+    ---Lines to be ignored while (un)comment
+    ignore = nil,
+    ---LHS of toggle mappings in NORMAL mode
+    toggler = {
+        ---Line-comment toggle keymap
+        line = 'gcc',
+        ---Block-comment toggle keymap
+        block = 'gbc',
     },
-
-    -- Module mappings. Use `''` (empty string) to disable one.
+    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+    opleader = {
+        ---Line-comment keymap
+        line = 'gc',
+        ---Block-comment keymap
+        block = 'gb',
+    },
+    ---LHS of extra mappings
+    extra = {
+        ---Add comment on the line above
+        above = 'gcO',
+        ---Add comment on the line below
+        below = 'gco',
+        ---Add comment at the end of line
+        eol = 'gcA',
+    },
+    ---Enable keybindings
+    ---NOTE: If given `false` then the plugin won't create any mappings
     mappings = {
-      -- Toggle comment (like `gcip` - comment inner paragraph) for both
-      -- Normal and Visual modes
-      comment = '<leader>c',
-
-      -- Toggle comment on current line
-      comment_line = '<leader>/',
-
-      -- Toggle comment on visual selection
-      comment_visual = '<leader>/',
-
-      -- Define 'comment' textobject (like `dgc` - delete whole comment block)
-      textobject = '<leader>c',
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+        basic = true,
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = true,
     },
-
-    -- Hook functions to be executed at certain stage of commenting
-    hooks = {
-      -- Before successful commenting. Does nothing by default.
-      pre = function() end,
-      -- After successful commenting. Does nothing by default.
-      post = function() end,
-    },
+    ---Function to call before (un)comment
+    pre_hook = nil,
+    ---Function to call after (un)comment
+    post_hook = nil,
   })
 end

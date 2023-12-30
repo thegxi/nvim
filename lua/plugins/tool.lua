@@ -5,6 +5,10 @@ return {
   {
     'xeluxee/competitest.nvim',
     dependencies = 'MunifTanjim/nui.nvim',
-    config = require('plugins.tool.competitest')
+    config = require('plugins.config.tool.competitest')
+  },
+  {
+    'NvChad/nvterm',
+    config = require('plugins.config.tool.nvterm')
   }
 }

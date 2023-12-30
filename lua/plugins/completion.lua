@@ -3,7 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     lazy = true,
     event = { 'CursorHold', 'CursorHoldI' },
-    config = require('plugins.completion.lspconfig'),
+    config = require('plugins.config.completion.lspconfig'),
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -15,7 +15,7 @@ return {
       'nvim-treesitter/nvim-treesitter', -- optional
       'nvim-tree/nvim-web-devicons'     -- optional
     },
-    config = require('plugins.completion.lspsaga')
+    config = require('plugins.config.completion.lspsaga')
   },
   {
     'hrsh7th/nvim-cmp',
@@ -41,6 +41,6 @@ return {
         end
       }
     },
-    config = require('plugins.completion.cmp')
+    config = require('plugins.config.completion.cmp')
   }
 }

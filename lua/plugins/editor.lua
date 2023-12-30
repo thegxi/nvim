@@ -4,7 +4,7 @@ return {
      'windwp/nvim-autopairs',
       lazy = true,
       event = "InsertEnter",
-      config = require('plugins.editor.autopairs')
+      config = require('plugins.config.editor.autopairs')
   },
   -- 注释
   {
@@ -18,11 +18,11 @@ return {
       }
     }
   },
-  -- 普通用户 sudo 保存文件
+  -- sudo 保存文件
   {
     'lambdalisue/suda.vim',
     lazy = true,
     cmd = { 'SudaRead', 'SudaWrite' },
-    config = require('plugins.editor.suda')
+    config = require('plugins.config.editor.suda')
   }
 }

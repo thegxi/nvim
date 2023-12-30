@@ -34,5 +34,14 @@ return {
   {
     'folke/trouble.nvim',
     config = require('plugins.config.tool.trouble')
+  },
+  -- Keymap
+  {
+    'folke/which-key.nvim',
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = require('plugins.config.tool.which-key')
   }
 }

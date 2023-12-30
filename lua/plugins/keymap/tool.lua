@@ -1,4 +1,4 @@
-local util = require('plugins.util.map')
+local util = require('plugins.util.mapping')
 local terminal = require('nvterm.terminal')
 local ft_cmds = { python = 'python3 ' .. vim.fn.expand('%') }
 local map_cr = util.map_cr

@@ -36,5 +36,10 @@ return {
     build = ':TSUpdate',
     dependencies = { 'hiphish/rainbow-delimiters.nvim' },
     config = require('plugins.config.editor.nvim-treesitter')
+  },
+  -- Project
+  {
+    'ahmedkhalf/project.nvim',
+    config = require('plugins.config.editor.project')
   }
 }

@@ -1,4 +1,5 @@
 return {
+  -- Lsp
   { 
     "neovim/nvim-lspconfig",
     lazy = true,
@@ -9,6 +10,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     }
   },
+  -- Lsp UI优化
   {
     'nvimdev/lspsaga.nvim',
     dependencies = {
@@ -17,6 +19,7 @@ return {
     },
     config = require('plugins.config.completion.lspsaga')
   },
+  -- 补全源
   {
     'hrsh7th/nvim-cmp',
     lazy = true,
@@ -42,5 +45,10 @@ return {
       }
     },
     config = require('plugins.config.completion.cmp')
+  },
+  -- Inject LSP diagnostics, code actions, and more vIa Lua.
+  {
+    'nvimtools/none-ls.nvim',
+    config = require('plugins.config.completion.none-ls')
   }
 }

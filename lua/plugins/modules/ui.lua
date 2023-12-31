@@ -1,4 +1,9 @@
 return {
+  {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = require('plugins.config.ui.dashboard')
+  },
   -- Theme
   { 'projekt0n/github-nvim-theme' },
   { 'joshdick/onedark.vim' },

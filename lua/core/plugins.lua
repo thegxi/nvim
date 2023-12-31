@@ -14,10 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 require("lazy").setup({
-  require("plugins.ui"),
-  require("plugins.completion"),
-  require("plugins.tool"),
-  require("plugins.editor"),
+  require("plugins.modules.ui"),
+  require("plugins.modules.completion"),
+  require("plugins.modules.tool"),
+  require("plugins.modules.editor"),
 })
 
 -- Plugin keymap

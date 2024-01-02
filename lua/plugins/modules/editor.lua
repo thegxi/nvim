@@ -41,5 +41,11 @@ return {
   {
     'ahmedkhalf/project.nvim',
     config = require('plugins.config.editor.project')
+  },
+  -- Buffer
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    config = require('plugins.config.editor.bufferline')
   }
 }

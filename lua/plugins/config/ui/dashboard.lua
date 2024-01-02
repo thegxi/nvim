@@ -18,8 +18,6 @@ return function()
   db.custom_footer = {
     -- "",
     "千里之行，始于足下                     ",
-    -- "https://xray23.ltd                     ",
-    "https://github.com/HUAHUA              ",
   }
   db.custom_center = {
     {
@@ -182,8 +180,6 @@ return function()
             "",
             "",
             "千里之行，始于足下                     ",
-            -- "https://xray23.ltd                     ",
-            "https://github.com/HUAHUA              ",
           },
         },
       })

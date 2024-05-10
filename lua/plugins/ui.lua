@@ -70,6 +70,18 @@ return {
       main = "ibl", 
       config = true,
     },
+    -- ------------------------------ 缩进 -----------------------------------
+    {
+      "lewis6991/gitsigns.nvim",
+      config = true,
+    },
+    -- ------------------------------ 缩进 -----------------------------------
+    {
+      "goolord/alpha-nvim",
+      config = function()
+	      require("plugins.ui.alpha")
+      end
+    },
   },
 
 }

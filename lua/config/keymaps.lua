@@ -39,3 +39,13 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "[b", "<CMD>BufferLineCyclePrev<CR>")
 keymap.set("n", "]b", "<CMD>BufferLineCycleNext<CR>")
 keymap.set("n", "bD", "<CMD>BufferLinePickClose<CR>")
+
+-- telescope
+keymap.set("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+keymap.set("n", "<leader>fg", "<CMD>Telescope live_grep<CR>")
+keymap.set("n", "<leader>fb", "<CMD>Telescope buffers<CR>")
+keymap.set("n", "<leader>fh", "<CMD>Telescope help_tags<CR>")
+keymap.set("n", "<leader>sd", "<CMD>Telescope diagnostics<CR>")
+keymap.set("n", "<leader>sk", "<CMD>Telescope keymaps<CR>")
+keymap.set("n", "<leader>sr", "<CMD>Telescope resume<CR>")
+keymap.set("n", "<leader>s.", "<CMD>Telescope oldfiles<CR>")

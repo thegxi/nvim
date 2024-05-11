@@ -56,7 +56,7 @@ return function()
      ensure_installed = vim.tbl_keys(servers),
    })
 
-  for serjer,config in pairs(servers) do
+  for server,config in pairs(servers) do
     require("lspconfig")[server].setup(
       vim.tbl_deep_extend('keep',
         {

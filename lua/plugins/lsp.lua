@@ -23,5 +23,10 @@ return {
   -- lsp美化
   {
     "nvimdev/lspsaga.nvim"
-  }
+  },
+  -- buffer状态
+  {
+    "akinsho/bufferline.nvim", 
+    config = true
+  },
 }

@@ -15,7 +15,7 @@ return function()
      docker_compose_language_service = {},
      bashls = {},
    }
-   local oj_attach = function(_, bufnr)
+   local on_attach = function(_, bufnr)
      -- Enable completion triggered by <c-x><c-o>
      local nmap = function(keys, func, desc)
        if desc then
@@ -56,12 +56,14 @@ return function()
      ensure_installed = vim.tbl_keys(servers),
    })
 
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
   for server,config in pairs(servers) do
     require("lspconfig")[server].setup(
       vim.tbl_deep_extend('keep',
         {
           on_attach = on_attach,
-        capabilities = capabilities
+          capabilities = capabilities
         },
         config
       )

@@ -49,3 +49,7 @@ keymap.set("n", "<leader>sd", "<CMD>Telescope diagnostics<CR>")
 keymap.set("n", "<leader>sk", "<CMD>Telescope keymaps<CR>")
 keymap.set("n", "<leader>sr", "<CMD>Telescope resume<CR>")
 keymap.set("n", "<leader>s.", "<CMD>Telescope oldfiles<CR>")
+
+-- neotree(file system)
+keymap.set({"n", "v"}, "<leader>e", "<CMD>Neotree toggle<CR>")
+--keymap.set({"n", "v"}, "<leader>b", "<CMD>Neotree buffers<CR>")

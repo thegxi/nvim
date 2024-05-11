@@ -96,5 +96,31 @@ return {
         end
       )
     end,
-  }
+  },
+ -- markdown preview
+ {
+   "ellisonleao/glow.nvim",
+   config = function()
+      require("plugins.tool.glow")
+   end
+ },
+ -- file system
+ {
+   "nvim-neo-tree/neo-tree.nvim",
+   branch = "v3.x",
+   dependencies = {
+     "nvim-lua/plenary.nvim",
+     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+     "MunifTanjim/nui.nvim",
+    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+   },
+   config = function()
+      require("plugins.tool.neotree")
+   end
+ },
+ -- keymap tip
+ {
+  "folke/which-key.nvim",
+  config = true
+ },
 }

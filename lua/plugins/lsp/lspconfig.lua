@@ -49,6 +49,7 @@ return function()
    require("mason").setup()
    require("neoconf").setup()
    require("neodev").setup()
+   require("fidget").setup()
    require("mason-lspconfig").setup({
      ensure_installed = vim.tbl_keys(servers),
    })

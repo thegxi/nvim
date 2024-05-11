@@ -15,4 +15,9 @@ return {
   { 
     "folke/neodev.nvim",
   },
+  -- lsp加载进度显示
+  {
+    "j-hui/fidget.nvim",
+    tag = "v1.4.1",
+  }
 }

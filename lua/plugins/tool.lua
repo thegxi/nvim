@@ -121,6 +121,16 @@ return {
  -- keymap tip
  {
   "folke/which-key.nvim",
-  config = true
+  config = true,
+ },
+ -- Customizable creation of a/i textobjects using Lua patterns and functions
+ {
+   "echasnovski/mini.ai",
+    config = true,
+ },
+ -- comment
+ {
+   "echasnovski/mini.comment",
+    config = true,
  },
 }

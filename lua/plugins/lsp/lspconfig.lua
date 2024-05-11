@@ -2,8 +2,10 @@ return function()
    local servers = {
      lua_ls = {
        Lua = {
-         workspace = { checkThirdParty = false },
+         settings = {
+           workspace = { checkThirdParty = false },
            telemetry = { enable = false },
+         }
        },
      },
      pyright = {},
@@ -45,15 +47,20 @@ return function()
      nmap("]d", vim.diagnostic.goto_prev, '[G]oto next item')
    end
    require("mason").setup()
+   require("neodev").setup()
    require("mason-lspconfig").setup({
      ensure_installed = vim.tbl_keys(servers),
-     handlers = {
-       function(server_name) -- default handler (optional)
-         require("lspconfig")[server_name].setup {
-           settings = servers[server_name],
-           on_attach = on_attach,
-         }
-       end,
-     }
    })
+
+  for server,config in pairs(servers) do
+    require("lspconfig")[server].setup(
+      vim.tbl_deep_extend('keep', 
+        {
+          on_attach = on_attach,
+        capabilities = capabilities
+        },
+        config
+      )   
+    )
+  end
 end

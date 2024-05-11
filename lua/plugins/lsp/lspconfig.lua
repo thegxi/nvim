@@ -47,6 +47,7 @@ return function()
      nmap("]d", vim.diagnostic.goto_prev, '[G]oto next item')
    end
    require("mason").setup()
+   require("neoconf").setup()
    require("neodev").setup()
    require("mason-lspconfig").setup({
      ensure_installed = vim.tbl_keys(servers),

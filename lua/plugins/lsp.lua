@@ -19,5 +19,9 @@ return {
   {
     "j-hui/fidget.nvim",
     tag = "v1.4.1",
+  },
+  -- lsp美化
+  {
+    "nvimdev/lspsaga.nvim"
   }
 }

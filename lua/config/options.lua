@@ -45,3 +45,14 @@ opt.confirm = true
 
 -- vim.cmd "colorscheme tokyonight"
 vim.cmd "colorscheme tokyonight-storm"
+-- vim.api.nvim_command(
+--   [[
+--     hi Normal ctermfg=7 ctermbg=NONE cterm=NONE
+--     colorscheme solarized8_high
+--     let &t_SI .= '\e[5 q'
+--     let &t_EI .= '\e[1 q'
+--     let &t_vb = ''
+--     let &t_ut = ''
+--   ]]
+-- )
+

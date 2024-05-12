@@ -4,18 +4,24 @@ local keymap = vim.keymap
 
 -- -------------------------- 插入模式 -----------------------------
 keymap.set("i", "<C-[>", "<ESC>")
+keymap.set("i", "<C-s>", "<ESC><CMD>w<CR>")
+keymap.set("i", "<C-q>", "<ESC><CMD>q!<CR>")
+keymap.set("i", "<A-j>", "<ESC><CMD>m .+1<CR>==gi")
+keymap.set("i", "<A-k>", "<ESC><CMD>m .-2<CR>==gi")
 
 -- -------------------------- 视图模式 -----------------------------
 -- 单行或多行移动
-keymap.set("n", "<A-j>", "<CMD>m .+1<CR>==")
-keymap.set("n", "<A-k>", "<CMD>m .-2<CR>==")
-keymap.set("i", "<A-j>", "<ESC><CMD>m .+1<CR>==gi")
-keymap.set("i", "<A-k>", "<ESC><CMD>m .-2<CR>==gi")
 keymap.set("v", "<A-j>", "<CMD>m '>+1<CR>gv=gv")
 keymap.set("v", "<A-k>", "<CMD>m '>-2<CR>gv=gv")
 
 -- -------------------------- 普通模式 -----------------------------
+-- 编辑
+keymap.set("n", "W", "<CMD>w<CR>")
+keymap.set("n", "Q", "<CMD>q<CR>")
+keymap.set("n", "<C-q>", "<CMD>q!<CR>")
 -- 窗口
+keymap.set("n", "<A-j>", "<CMD>m .+1<CR>==")
+keymap.set("n", "<A-k>", "<CMD>m .-2<CR>==")
 ---- 水平新增窗口
 keymap.set("n", "<leader>sv", "<C-w>v")
 ---- 垂直新增窗口

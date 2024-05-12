@@ -18,6 +18,7 @@ keymap.set("v", "<A-k>", "<CMD>m '>-2<CR>gv=gv")
 -- 编辑
 keymap.set("n", "W", "<CMD>w<CR>")
 keymap.set("n", "Q", "<CMD>q<CR>")
+keymap.set("n", "<C-s>", "<CMD>w<CR>")
 keymap.set("n", "<C-q>", "<CMD>q!<CR>")
 -- 窗口
 keymap.set("n", "<A-j>", "<CMD>m .+1<CR>==")

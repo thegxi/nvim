@@ -14,6 +14,7 @@ return function()
      dockerls = {},
      docker_compose_language_service = {},
      bashls = {},
+     html = {},
    }
    local on_attach = function(_, bufnr)
      -- Enable completion triggered by <c-x><c-o>

@@ -69,6 +69,7 @@ return {
       "lukas-reineke/indent-blankline.nvim", 
       main = "ibl", 
       config = true,
+      tag = "v3.5.4"
     },
     -- ------------------------------ 缩进 -----------------------------------
     {

@@ -118,6 +118,10 @@ return {
       require("plugins.tool.neotree")
    end
  },
+ {
+  "echasnovski/mini.files",
+   config = true,
+ },
  -- keymap tip
  {
   "folke/which-key.nvim",

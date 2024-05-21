@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
 -- -------------------------- 插入模式 -----------------------------
 keymap.set("i", "<C-[>", "<ESC>")
@@ -31,6 +32,12 @@ keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-j>", "<C-w>j")
 keymap.set("n", "<C-k>", "<C-w>k")
 keymap.set("n", "<C-l>", "<C-w>l")
+---- 增减数值
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
+
+---- Jumplist
+keymap.set("n", "<C-m>", "<C-i>", opts)
 
 ---- 调节窗口大小
 keymap.set("n", "<C-up>", "<CMD>resize +2<CR>")
@@ -58,5 +65,6 @@ keymap.set("n", "<leader>sr", "<CMD>Telescope resume<CR>")
 keymap.set("n", "<leader>s.", "<CMD>Telescope oldfiles<CR>")
 
 -- neotree(file system)
-keymap.set({"n", "v"}, "<leader>e", "<CMD>Neotree toggle<CR>")
+keymap.set({"n", "v", "i"}, "<leader>e", "<CMD>Neotree toggle<CR>")
+keymap.set({"n", "v", "i"}, "<leader>n", "<CMD>:lua MiniFiles.open()<CR>")
 --keymap.set({"n", "v"}, "<leader>b", "<CMD>Neotree buffers<CR>")

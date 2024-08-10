@@ -14,3 +14,4 @@ opt.formatoptions:append('cro') -- continue comments when going down a line, hit
 opt.sessionoptions:remove('options') -- don't save keymaps and local options
 opt.foldlevelstart = 99 -- no auto folding
 
+vim.cmd[[colorscheme tokyonight-storm]]

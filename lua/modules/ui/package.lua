@@ -80,4 +80,11 @@ return {
     ---@type ibl.config
     opts = require("modules.ui.indent-blankline"),
 	},
+	-- gitsigns
+	{
+	  "lewis6991/gitsigns.nvim",
+	  lazy = true,
+	  event = { "CursorHold", "CursorHoldI" },
+	  config = require("modules.ui.gitsigns")
+	},
 }

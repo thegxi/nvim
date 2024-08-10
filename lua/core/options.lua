@@ -13,5 +13,7 @@ opt.updatetime = 100 -- mainly for trld.nvim which utilize CursorHold autocmd
 opt.formatoptions:append('cro') -- continue comments when going down a line, hit C-u to remove the added comment prefix
 opt.sessionoptions:remove('options') -- don't save keymaps and local options
 opt.foldlevelstart = 99 -- no auto folding
-
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.tabstop = 2 -- Number of spaces tabs count for
 vim.cmd[[colorscheme tokyonight-storm]]

@@ -45,7 +45,7 @@ return function()
 	
 	lualine.setup({
 	  options = {
-	    theme = "auto",
+	    theme = "horizon",
 	    globalstatus = vim.o.laststatus == 3,
 	    disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter" } },
 	  },

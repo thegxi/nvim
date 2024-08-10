@@ -72,4 +72,12 @@ return {
 	event = "VeryLazy",
 	config = require("modules.ui.bufferline")
   },
+	-- indent-blankline
+	{
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = require("modules.ui.indent-blankline"),
+	},
 }

@@ -93,5 +93,12 @@ return {
     lazy = true,
 	  event = "VeryLazy",
 	  config = require("modules.ui.notify")
+  },
+  -- dashboard-nvim
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = require("modules.ui.dashboard"),
+    dependencies = { "nvim-tree/nvim-web-devicons"}
   }
 }

@@ -93,5 +93,5 @@ return {
     lazy = true,
 	  event = "VeryLazy",
 	  config = require("modules.ui.notify")
-  },
+  }
 }

@@ -10,4 +10,11 @@ return {
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end
   },
+  -- which-key.nvim
+  {
+    "folke/which-key.nvim",
+	  lazy = true,
+	  event = { "CursorHold", "CursorHoldI" },
+	  config = require("modules.tool.which-key"),
+  }
 }

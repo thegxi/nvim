@@ -8,5 +8,9 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
-  }
+  },
+  {
+    'MagicDuck/grug-far.nvim',
+    config = require("modules.editor.grug-far")
+  },
 }

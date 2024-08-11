@@ -21,5 +21,10 @@ return {
   event = { "CursorHold", "CursorHoldI" },
   ---@type Flash.Config
   config = require("modules.editor.flash"),
+  },
+  {
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    opts = {}
   }
 }

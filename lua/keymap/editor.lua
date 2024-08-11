@@ -21,6 +21,13 @@ local plug_map = {
 	-- ["x|R"] = bind.map_callback(function() require("flash").treesitter_search() end):with_expr():with_desc("Treesitter Search"),
 	-- ["o|R"] = bind.map_callback(function() require("flash").remote() end):with_expr():with_desc("Remote Flash"),
 	-- ["c|<c-s>"] = bind.map_callback(function() require("flash").toggle() end):with_expr():with_desc("Toggle Flash Search"),
+	-- todo-comments.nvim
+	["n|]t"] = bind.map_callback(function() require("todo-comments").jump_next() end):with_noremap():with_silent():with_desc("todo: Next Todo Comment"),
+	["n|[t"] = bind.map_callback(function() require("todo-comments").jump_prev() end):with_noremap():with_silent():with_desc("todo: Previous Todo Comment"),
+	["n|<leader>xt"] = bind.map_cr("Trouble todo toggle"):with_noremap():with_silent():with_desc("todo: Todo (Trouble)"),
+	["n|<leader>xT"] = bind.map_cr("Trouble todo filter = {tag = {TODO,FIX,FIXME}}"):with_noremap():with_silent():with_desc("todo: Fix/Fixme (Trouble)"),
+	["n|<leader>st"] = bind.map_cr("TodoTelescope"):with_noremap():with_silent():with_desc("todo: Todo"),
+	["n|<leader>sT"] = bind.map_cr("TodoTelescope keywords=TODO,FIX,FIXME"):with_noremap():with_silent():with_desc("todo: Fix/Fixme"),
 }
 
 bind.nvim_load_mapping(plug_map)

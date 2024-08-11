@@ -78,7 +78,7 @@ return {
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
-    opts = require("modules.ui.indent-blankline"),
+    opts = require("modules.ui.indent-blankline")
 	},
 	-- gitsigns
 	{
@@ -87,4 +87,11 @@ return {
 	  event = { "CursorHold", "CursorHoldI" },
 	  config = require("modules.ui.gitsigns")
 	},
+	-- notify
+	{
+    "rcarriga/nvim-notify",
+    lazy = true,
+	  event = "VeryLazy",
+	  config = require("modules.ui.notify")
+  },
 }

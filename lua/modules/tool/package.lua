@@ -16,5 +16,12 @@ return {
 	  lazy = true,
 	  event = { "CursorHold", "CursorHoldI" },
 	  config = require("modules.tool.which-key"),
+  },
+  -- trouble.nvim
+  {
+    "folke/trouble.nvim",
+	  lazy = true,
+	  cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
+	  config = require("modules.tool.trouble")
   }
 }

@@ -46,6 +46,6 @@ opt.wrap = false -- disable wrapping of lines longer than the width of window
 opt.writebackup = false -- disable making a backup before overwriting a file
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = " "
 
 vim.cmd[[colorscheme tokyonight-storm]]

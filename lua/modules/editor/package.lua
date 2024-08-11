@@ -1,4 +1,5 @@
 return {
+  -- neo-tree.nvim
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -9,8 +10,16 @@ return {
       "MunifTanjim/nui.nvim",
     }
   },
+  -- grug-far.nvim
   {
     'MagicDuck/grug-far.nvim',
     config = require("modules.editor.grug-far")
   },
+  -- flash.nvim
+  {
+  "folke/flash.nvim",
+  event = { "CursorHold", "CursorHoldI" },
+  ---@type Flash.Config
+  config = require("modules.editor.flash"),
+  }
 }

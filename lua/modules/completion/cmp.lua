@@ -28,8 +28,8 @@ return function()
 	local use_copilot = require("core.settings").use_copilot
 	local comparators = use_copilot == true
 			and {
-				require("copilot_cmp.comparators").prioritize,
-				require("copilot_cmp.comparators").score,
+				-- require("copilot_cmp.comparators").prioritize,
+				-- require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				compare.offset, -- Items closer to cursor will have lower priority
 				compare.exact,
@@ -39,7 +39,7 @@ return function()
 				compare.score,
 				compare.recently_used,
 				-- compare.locality, -- Items closer to cursor will have higher priority, conflicts with `offset`
-				require("cmp-under-comparator").under,
+				-- require("cmp-under-comparator").under,
 				compare.kind,
 				compare.length,
 				compare.order,
@@ -61,7 +61,7 @@ return function()
 		}
 
 	local cmp = require("cmp")
-	require("modules.utils").load_plugin("cmp", {
+	require("cmp").setup({
 		preselect = cmp.PreselectMode.None,
 		window = {
 			completion = {

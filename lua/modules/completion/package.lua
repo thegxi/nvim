@@ -27,5 +27,12 @@ return {
     -- }
     -- ```
     config = require("modules.completion.cmp")
-	}
+	},
+	{
+    "nvimdev/lspsaga.nvim",
+	  lazy = true,
+	  event = "LspAttach",
+	  config = require("modules.completion.lspsaga"),
+	  dependencies = { "nvim-tree/nvim-web-devicons" },
+  }
 }

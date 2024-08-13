@@ -7,6 +7,7 @@ return function()
       "c",
       "diff",
       "html",
+      "java",
       "javascript",
       "jsdoc",
       "json",
@@ -27,15 +28,6 @@ return function()
       "vimdoc",
       "xml",
       "yaml",
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<C-space>",
-        node_incremental = "<C-space>",
-        scope_incremental = false,
-        node_decremental = "<bs>",
-      },
     },
     textobjects = {
       move = {

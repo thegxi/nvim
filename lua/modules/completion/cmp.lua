@@ -1,11 +1,13 @@
 return function()
   local cmp = require("cmp")
   local options = {
+    completion = {
+      completeopt = "menu,menuone,preview,noselect"
+    },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
@@ -24,8 +26,6 @@ return function()
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-				elseif require("luasnip").expand_or_locally_jumpable() then
-					require("luasnip").expand_or_jump()
 				else
 					fallback()
 				end
@@ -33,8 +33,6 @@ return function()
 			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-				elseif require("luasnip").jumpable(-1) then
-					require("luasnip").jump(-1)
 				else
 					fallback()
 				end
@@ -52,13 +50,10 @@ return function()
 			}),
     }),
     sources = {
-      { name = 'nvim_lsp' },
+      { name = 'buffer', keyword_length = 3 },
       { name = 'git' },
-      -- { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-      { name = 'buffer' },
+      { name = 'luasnip', keyword_length = 2 },
+      { name = 'nvim_lsp' }
     }
   }
 
@@ -68,7 +63,7 @@ return function()
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
+      { name = 'buffer' },
     }
   })
 
@@ -78,7 +73,11 @@ return function()
     sources = cmp.config.sources({
       { name = 'path' }
     }, {
-      { name = 'cmdline' }
+      { name = 'cmdline',
+        options = {
+            ignore_cmds = { 'Man', '!' }
+        }
+      }
     }),
     matching = { disallow_symbol_nonprefix_matching = false }
   })

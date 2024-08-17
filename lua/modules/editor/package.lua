@@ -26,5 +26,9 @@ return {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
     opts = {}
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = true
   }
 }

@@ -41,6 +41,7 @@ icons = {
       File          = " ",
       Folder        = " ",
       Function      = "󰊕 ",
+      Implementation = "",
       Interface     = " ",
       Key           = " ",
       Keyword       = " ",
@@ -64,6 +65,14 @@ icons = {
       Value         = " ",
       Variable      = "󰀫 ",
     },
+    type = {
+		  Array = "󰅪",
+		  Boolean = "",
+		  Null = "󰟢",
+		  Number = "",
+		  Object = "󰅩",
+		  String = "󰉿",
+	  },
 		ui = {
 			Accepted = "",
 			ArrowClosed = "",

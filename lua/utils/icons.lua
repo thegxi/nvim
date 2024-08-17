@@ -23,7 +23,7 @@ icons = {
       modified = " ",
       removed  = " ",
     },
-    kinds = {
+    kind = {
       Array         = " ",
       Boolean       = "󰨙 ",
       Class         = " ",

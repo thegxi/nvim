@@ -1,51 +1,83 @@
-local opt = vim.opt
-
-opt.backspace = vim.list_extend(vim.opt.backspace:get(), { "nostop" }) -- don't stop backspace at insert
-opt.breakindent = true -- wrap indent to match  line start
-if not vim.env.SSH_TTY or vim.fn.has "nvim-0.10" ~= 1 then -- only set `clipboard` if in SSH session and in neovim 0.10+
-  opt.clipboard = "unnamedplus" -- connection to the system clipboard
-end
-opt.cmdheight = 0 -- hide command line unless needed
-opt.completeopt = { "menu", "menuone", "noselect" } -- Options for insert mode completion
-opt.confirm = true -- raise a dialog asking if you wish to save the current file(s)
-opt.copyindent = true -- copy the previous indentation on autoindenting
-opt.cursorline = true -- highlight the text line of the cursor
-opt.diffopt = vim.list_extend(vim.opt.diffopt:get(), { "algorithm:histogram", "linematch:60" }) -- enable linematch diff algorithm
-opt.expandtab = true -- enable the use of space in tab
-opt.fillchars = { eob = " " } -- disable `~` on nonexistent lines
-opt.foldcolumn = "1" -- show foldcolumn
-opt.foldenable = true -- enable fold for nvim-ufo
-opt.foldlevel = 99 -- set high foldlevel for nvim-ufo
-opt.foldlevelstart = 99 -- start with all code unfolded
-opt.ignorecase = true -- case insensitive searching
-opt.infercase = true -- infer cases in keyword completion
-opt.laststatus = 3 -- global statusline
-opt.linebreak = true -- wrap lines at 'breakat'
-opt.mouse = "a" -- enable mouse support
-opt.number = true -- show numberline
-opt.preserveindent = true -- preserve indent structure as much as possible
-opt.pumheight = 10 -- height of the pop up menu
-opt.relativenumber = true -- show relative numberline
-opt.shiftwidth = 0 -- number of space inserted for indentation; when zero the 'tabstop' value will be used
-opt.shortmess = vim.tbl_deep_extend("force", vim.opt.shortmess:get(), { s = true, I = true }) -- disable search count wrap and startup messages
-opt.showmode = false -- disable showing modes in command line
-opt.showtabline = 2 -- always display tabline
-opt.signcolumn = "yes" -- always show the sign column
-opt.smartcase = true -- case sensitive searching
-opt.splitbelow = true -- splitting a new window below the current one
-opt.splitright = true -- splitting a new window at the right of the current one
-opt.tabstop = 2 -- number of space in a tab
-opt.termguicolors = true -- enable 24-bit RGB color in the TUI
-opt.timeoutlen = 500 -- shorten key timeout length a little bit for which-key
-opt.title = true -- set terminal title to the filename and path
-opt.undofile = true -- enable persistent undo
-opt.updatetime = 300 -- length of time to wait before triggering the plugin
-opt.viewoptions = vim.tbl_filter(function(val) return val ~= "curdir" end, vim.opt.viewoptions:get())
-opt.virtualedit = "block" -- allow going past end of line in visual block mode
-opt.wrap = false -- disable wrapping of lines longer than the width of window
-opt.writebackup = false -- disable making a backup before overwriting a file
-
-vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
-
-vim.cmd[[colorscheme tokyonight-storm]]
+-- utf8
+vim.g.encoding = "UTF-8"
+vim.o.fileencoding = "utf-8"
+-- jkhl 移动时光标周围保留8行
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
+-- 使用相对行号
+vim.wo.number = true
+vim.wo.relativenumber = true
+-- 高亮所在行
+vim.wo.cursorline = true
+-- 显示左侧图标指示列
+vim.wo.signcolumn = "yes"
+-- 右侧参考线，超过表示代码太长了，考虑换行
+vim.wo.colorcolumn = "80"
+-- 缩进2个空格等于一个Tab
+vim.o.tabstop = 2
+vim.bo.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftround = true
+-- >> << 时移动长度
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
+-- 空格替代tab
+vim.o.expandtab = true
+vim.bo.expandtab = true
+-- 新行对齐当前行
+vim.o.autoindent = true
+vim.bo.autoindent = true
+vim.o.smartindent = true
+-- 搜索大小写不敏感，除非包含大写
+vim.o.ignorecase = true
+vim.o.smartcase = true
+-- 搜索不要高亮
+vim.o.hlsearch = false
+-- 边输入边搜索
+vim.o.incsearch = true
+-- 命令行高为2，提供足够的显示空间
+vim.o.cmdheight = 1
+-- 当文件被外部程序修改时，自动加载
+vim.o.autoread = true
+vim.bo.autoread = true
+-- 禁止折行
+vim.wo.wrap = false
+-- 光标在行首尾时<Left><Right>可以跳到下一行
+vim.o.whichwrap = "<,>,[,]"
+-- 允许隐藏被修改过的buffer
+vim.o.hidden = true
+-- 鼠标支持
+vim.o.mouse = "a"
+-- 禁止创建备份文件
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+-- smaller updatetime
+vim.o.updatetime = 300
+-- 设置 timeoutlen 为等待键盘快捷键连击时间500毫秒，可根据需要设置
+-- 遇到问题详见：https://github.com/nshen/learn-neovim-lua/issues/1
+vim.o.timeoutlen = 500
+-- split window 从下边和右边出现
+vim.o.splitbelow = true
+vim.o.splitright = true
+-- 自动补全不自动选中
+vim.g.completeopt = "menu,menuone,noselect,noinsert"
+-- 样式
+vim.o.termguicolors = true
+vim.opt.termguicolors = true
+-- 是否显示不可见字符
+vim.o.list = false
+-- 不可见字符的显示，这里只把空格显示为一个点
+vim.o.listchars = "space:·,tab:··"
+-- 补全增强
+vim.o.wildmenu = true
+-- Dont' pass messages to |ins-completin menu|
+vim.o.shortmess = vim.o.shortmess .. "c"
+-- 补全最多显示10行
+vim.o.pumheight = 10
+-- 永远显示 tabline
+vim.o.showtabline = 2
+-- 使用增强状态栏插件后不再需要 vim 的模式提示
+vim.o.showmode = false
+-- 配置剪切板
+vim.opt.clipboard = "unnamedplus"

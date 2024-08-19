@@ -5,6 +5,11 @@ return {
     lazy = false,
     opts = { style = "moon" },
   },
+  -- gruvbox-baby
+  {
+		"luisiacc/gruvbox-baby",
+		lazy = false,
+	},
   -- catppuccin
   {
     "catppuccin/nvim",

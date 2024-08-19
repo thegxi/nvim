@@ -81,6 +81,17 @@ vim.o.showmode = false
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
 
+-- 打开文件默认不折叠
+vim.opt.foldenable = fase 
+-- 一次折叠默认的层数
+vim.opt.foldlevel = 99
+-- 折叠通过nvim_treesitter
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+
+
+
 -- colorscheme
 -- vim.cmd 'colorscheme tokyonight-storm'
 vim.cmd 'colorscheme gruvbox-baby'

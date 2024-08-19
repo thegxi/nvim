@@ -29,7 +29,25 @@ local plug_map = {
             vim.notify(err, vim.log.levels.ERROR)
           end
         end
-      end):with_noremap():with_silent():with_desc("lsp: Next Trouble/Quickfix Item")
+      end):with_noremap():with_silent():with_desc("lsp: Next Trouble/Quickfix Item"),
+
+  -- Telescope
+  ["n|<leader>r"] = bind.map_cr("Telescope oldfiles"):with_noremap():with_silent():with_desc("Telescope: oldfiles"),
+  ["n|<leader>D"] = bind.map_cr("Telescope diagnostics"):with_noremap():with_silent():with_desc("Telescope: diagnostics"),
+  ["n|<leader>f"] = bind.map_cr("Telescope resume"):with_noremap():with_silent():with_desc("Telescope: resume"),
+  ["n|<leader>ff"] = bind.map_cr("Telescope find_files"):with_noremap():with_silent():with_desc("Telescope: find_files"),
+  ["n|<leader>fb"] = bind.map_cr("Telescope buffers"):with_noremap():with_silent():with_desc("Telescope: buffers"), 
+  ["n|<leader>fw"] = bind.map_cr("lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor({postfix=''})"):with_noremap():with_silent():with_desc("Telescope: cursor"), 
+  ["v|<leader>fw"] = bind.map_cr("lua require('telescope-live-grep-args.shortcuts').grep_visual_selection({postfix=''})"):with_noremap():with_silent():with_desc("Telescope: cursor"), 
+  ["n|<leader>fg"] = bind.map_cr("lua require('telescope').extensions.live_grep_args.live_grep_args()"):with_noremap():with_silent():with_desc("Telescope: args"), 
+  -- no ignore, no config
+  ["n|<leader>fF"] = bind.map_cr("Telescope find_files find_command=rg,--no-ignore,--hidden,--files,--no-config"):with_noremap():with_silent():with_desc("Telescope: find_files"), 
+  ["n|<leader>fW"] = bind.map_cr("lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor({postfix=' --no-ignore --no-config'})"):with_noremap():with_silent():with_desc("Telescope: cursor"), 
+  ["v|<leader>fW"] = bind.map_cr("lua require('telescope-live-grep-args.shortcuts').grep_visual_selection({postfix=' --no-ignore --no-config'})"):with_noremap():with_silent():with_desc("Telescope: cursor"), 
+  ["n|<leader>s"] = bind.map_cr("lua require('telescope.builtin').lsp_document_symbols({symbol_width = 55, fname_width = 25})"):with_noremap():with_silent():with_desc("Telescope: builtin"), 
+  ["n|<leader>S"] = bind.map_cr("Telescope lsp_dynamic_workspace_symbols"):with_noremap():with_silent():with_desc("Telescope: lsp"), 
+  ["n|gr"] = bind.map_cr("Telescope lsp_references"):with_noremap():with_silent():with_desc("Telescope: lsp_references"), 
+  ["n|gd"] = bind.map_cr("Telescope lsp_definitions"):with_noremap():with_silent():with_desc("Telescope: lsp_definitions") 
 }
 
 bind.nvim_load_mapping(plug_map)

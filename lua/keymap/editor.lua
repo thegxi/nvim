@@ -2,7 +2,8 @@ local bind = require("keymap.bind")
 
 local plug_map = {
 	-- Plugin: neo-tree.nvim
-	["n|<leader>e"] = bind.map_cr("Neotree"):with_noremap():with_silent():with_desc("file-tree: Open tree"),
+	["n|<leader>e"] = bind.map_cr("Neotree toggle"):with_noremap():with_silent():with_desc("file-tree: Open tree"),
+	["n|<leader>o"] = bind.map_cr("Neotree reveal"):with_noremap():with_silent():with_desc("file-tree: Open tree"),
 	-- grug-far
 	["n|<leader>gw"] = bind.map_cr("lua require('grug-far').grug_far({ prefills = { search = vim.fn.expand('<cword>') } })"):with_noremap():with_silent():with_desc("search: current word under the cursor"),
 	["n|<leader>ge"] = bind.map_cr("lua require('grug-far').grug_far({ engine = 'astgrep' })"):with_noremap():with_silent():with_desc("grug-far: use ast-grep engine"),

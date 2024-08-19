@@ -66,11 +66,11 @@ return {
 	end,
 	opts = require("modules.ui.lualine")
   },
-  -- bufferline
+  -- buffer
   {
-	"akinsho/bufferline.nvim",
-	event = "VeryLazy",
-	config = require("modules.ui.bufferline")
+    "nvimdev/flybuf.nvim",
+    cmd = "FlyBuf",
+    config = require("modules.ui.flybuf")
   },
 	-- indent-blankline
 	{

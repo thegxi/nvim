@@ -1,12 +1,11 @@
 local bind = require("keymap.bind")
-local map_cr = bind.map_cr
--- local map_cu = bind.map_cu
--- local map_cmd = bind.map_cmd
--- local map_callback = bind.map_callback
 
 local plug_map = {
 	-- Plugin: bufferline.nvim
-	["n|<leader>j"] = map_cr("FlyBuf"):with_noremap():with_silent():with_desc("buffer: show buffers"),
+	["n|<leader>j"] = bind.map_cr("FlyBuf"):with_noremap():with_silent():with_desc("buffer: show buffers"),
+
+  -- Plugin: outline
+  ["n|<leader>o"] = bind.map_cr("Outline"):with_noremap():with_silent():with_desc("outline: Toggle Outline")
 }
 
 bind.nvim_load_mapping(plug_map)

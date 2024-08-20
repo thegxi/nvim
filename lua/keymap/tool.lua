@@ -47,7 +47,20 @@ local plug_map = {
   ["n|<leader>s"] = bind.map_cr("lua require('telescope.builtin').lsp_document_symbols({symbol_width = 55, fname_width = 25})"):with_noremap():with_silent():with_desc("Telescope: builtin"), 
   ["n|<leader>S"] = bind.map_cr("Telescope lsp_dynamic_workspace_symbols"):with_noremap():with_silent():with_desc("Telescope: lsp"), 
   ["n|gr"] = bind.map_cr("Telescope lsp_references"):with_noremap():with_silent():with_desc("Telescope: lsp_references"), 
-  ["n|gd"] = bind.map_cr("Telescope lsp_definitions"):with_noremap():with_silent():with_desc("Telescope: lsp_definitions") 
+  ["n|gd"] = bind.map_cr("Telescope lsp_definitions"):with_noremap():with_silent():with_desc("Telescope: lsp_definitions"),
+  
+  -- dap
+  ["n|<leader>dt"] = bind.map_cr("lua require('dapui').toggle()"):with_noremap():with_silent():with_desc("DapUi: toggle"),
+  ["n|<leader>dT"] = bind.map_cr("lua require('dapui').float_element('stacks', {})"):with_noremap():with_silent():with_desc("DapUi: stacks"),
+  ["n|<leader>db"] = bind.map_cr("lua require'dap'.toggle_breakpoint()"):with_noremap():with_silent():with_desc("Dap: breakpoint"),
+  ["n|<leader>dB"] = bind.map_cr("lua require'dap'.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))"):with_noremap():with_silent():with_desc("Dap: breakpoint condition"),
+  ["n|<leader>dc"] = bind.map_cr("DapContinue"):with_noremap():with_silent():with_desc("Dap: continue"),
+  ["n|<leader>dn"] = bind.map_cr("lua require'dap'.step_over()"):with_noremap():with_silent():with_desc("Dap: step_over"),
+  ["n|<leader>ds"] = bind.map_cr("lua require'dap'.step_into()"):with_noremap():with_silent():with_desc("Dap: step_info"),
+  ["n|<leader>df"] = bind.map_cr("lua require'dap'.step_out()"):with_noremap():with_silent():with_desc("Dap: step_out"),
+  ["n|<leader>dk"] = bind.map_cr("lua require'dap'.terminate()"):with_noremap():with_silent():with_desc("Dap: terminate"),
+  ["n|<leader>de"] = bind.map_cr("lua require('dapui').eval()"):with_noremap():with_silent():with_desc("Dap: eval"),
+  ["n|<leader>d"] = bind.map_cr("lua require'dap'.run_last()"):with_noremap():with_silent():with_desc("Dap: run_last")
 }
 
 bind.nvim_load_mapping(plug_map)

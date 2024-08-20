@@ -31,5 +31,30 @@ return {
       },
     },
     config = require("modules.tool.telescope")
+  },
+  -- dap
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+		cmd = { "Mason" },
+		-- event = "VeryLazy",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			{
+				"williamboman/mason.nvim",
+				cmd = { "Mason" },
+			}
+		},
+    config = require("modules.tool.mason-nvim-dap")
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+		cmd = "DapContinue",
+		-- keys = { "<leader>dc" },
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+			"folke/neodev.nvim",
+		},
+    config = require("modules.tool.nvim-dap-ui")
   }
 }

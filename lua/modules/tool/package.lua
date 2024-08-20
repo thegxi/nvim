@@ -60,12 +60,14 @@ return {
   -- terminal
   {
     "akinsho/toggleterm.nvim",
-    version = "*",
-    keys = {
-      "<C-\\>",
-      "<leader>gg",
-      "<leader>gt",
-      "<leader>gb"
+    lazy = true,
+    cmd = {
+      "ToggleTerm",
+      "ToggleTermSetName",
+      "ToggleTermToggleAll",
+      "ToggleTermSendVisualLines",
+      "ToggleTermSendCurrentLine",
+      "ToggleTermSendVisualSelection",
     },
     config = require("modules.tool.toggleterm")
   }

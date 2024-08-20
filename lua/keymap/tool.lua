@@ -63,10 +63,20 @@ local plug_map = {
   ["n|<leader>d"] = bind.map_cr("lua require'dap'.run_last()"):with_noremap():with_silent():with_desc("Dap: run_last"),
 
   -- toggleterm
-  ["n|<leader>tg"] = bind.map_cr("lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit',direction = 'float'}):toggle()"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
-  ["n|<leader>tt"] = bind.map_cr("TermExec cmd='tig %' go_back=1 direction=float"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
-  ["n|<leader>tb"] = bind.map_cr("TermExec cmd='tig blame %' go_back=1 direction=float"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
-  ["t|<c-q>"] = bind.map_cr("bd!"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit")
+  ["t|<Esc><Esc>"] = bind.map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
+	["n|<C-\\>"] = bind.map_cr("ToggleTerm direction=horizontal") :with_noremap() :with_silent() :with_desc("terminal: Toggle horizontal"),
+	["i|<C-\\>"] = bind.map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>") :with_noremap() :with_silent() :with_desc("terminal: Toggle horizontal"),
+	["t|<C-\\>"] = bind.map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
+	["n|<A-\\>"] = bind.map_cr("ToggleTerm direction=vertical") :with_noremap() :with_silent() :with_desc("terminal: Toggle vertical"),
+	["i|<A-\\>"] = bind.map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>") :with_noremap() :with_silent() :with_desc("terminal: Toggle vertical"),
+	["t|<A-\\>"] = bind.map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
+	["n|<F5>"] = bind.map_cr("ToggleTerm direction=vertical") :with_noremap() :with_silent() :with_desc("terminal: Toggle vertical"),
+	["i|<F5>"] = bind.map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>") :with_noremap() :with_silent() :with_desc("terminal: Toggle vertical"),
+	["t|<F5>"] = bind.map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
+	["n|<A-d>"] = bind.map_cr("ToggleTerm direction=float"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["i|<A-d>"] = bind.map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>") :with_noremap() :with_silent() :with_desc("terminal: Toggle float"),
+	["t|<A-d>"] = bind.map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["n|<leader>tg"] = bind.map_callback(function() _toggle_lazygit() end) :with_noremap() :with_silent() :with_desc("git: Toggle lazygit"),
 }
 
 bind.nvim_load_mapping(plug_map)

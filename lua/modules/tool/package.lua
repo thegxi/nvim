@@ -56,5 +56,17 @@ return {
 			"folke/neodev.nvim",
 		},
     config = require("modules.tool.nvim-dap-ui")
+  },
+  -- terminal
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    keys = {
+      "<C-\\>",
+      "<leader>gg",
+      "<leader>gt",
+      "<leader>gb"
+    },
+    config = require("modules.tool.toggleterm")
   }
 }

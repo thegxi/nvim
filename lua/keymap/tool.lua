@@ -60,7 +60,13 @@ local plug_map = {
   ["n|<leader>df"] = bind.map_cr("lua require'dap'.step_out()"):with_noremap():with_silent():with_desc("Dap: step_out"),
   ["n|<leader>dk"] = bind.map_cr("lua require'dap'.terminate()"):with_noremap():with_silent():with_desc("Dap: terminate"),
   ["n|<leader>de"] = bind.map_cr("lua require('dapui').eval()"):with_noremap():with_silent():with_desc("Dap: eval"),
-  ["n|<leader>d"] = bind.map_cr("lua require'dap'.run_last()"):with_noremap():with_silent():with_desc("Dap: run_last")
+  ["n|<leader>d"] = bind.map_cr("lua require'dap'.run_last()"):with_noremap():with_silent():with_desc("Dap: run_last"),
+
+  -- toggleterm
+  ["n|<leader>tg"] = bind.map_cr("lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit',direction = 'float'}):toggle()"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
+  ["n|<leader>tt"] = bind.map_cr("TermExec cmd='tig %' go_back=1 direction=float"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
+  ["n|<leader>tb"] = bind.map_cr("TermExec cmd='tig blame %' go_back=1 direction=float"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
+  ["t|<c-q>"] = bind.map_cr("bd!"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit")
 }
 
 bind.nvim_load_mapping(plug_map)

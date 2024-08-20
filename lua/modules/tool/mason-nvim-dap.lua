@@ -19,7 +19,7 @@ return function()
     -- ['kotlin'] = 'kotlin-debug-adapter',
     -- ['dart'] = 'dart-debug-adapter',
     -- ['haskell'] = 'haskell-debug-adapter',
-    ensure_installed = { "cppdbg", "python" },
+    ensure_installed = require("core.settings").dap_deps,
     handlers = {
       function(config)
         -- all sources with no handler get passed here

@@ -70,5 +70,5 @@ return {
       "ToggleTermSendVisualSelection",
     },
     config = require("modules.tool.toggleterm")
-  }
+  },
 }

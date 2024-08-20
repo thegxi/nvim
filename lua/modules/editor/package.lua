@@ -30,5 +30,28 @@ return {
   {
     'numToStr/Comment.nvim',
     config = true
+  },
+  -- markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    lazy = true,
+    ft = "markdown",
+    config = require("modules.editor.render-markdown"),
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    lazy = true,
+    ft = "markdown",
+    build = ":call mkdp#util#install()",
+  },
+  {
+    "m4xshen/autoclose.nvim",
+    lazy = true,
+    event = "InsertEnter",
+    config = require("modules.editor.autoclose"),
   }
 }

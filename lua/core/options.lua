@@ -93,5 +93,5 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 
 -- colorscheme
--- vim.cmd 'colorscheme tokyonight-storm'
-vim.cmd 'colorscheme gruvbox-baby'
+vim.cmd 'colorscheme tokyonight-storm'
+-- vim.cmd 'colorscheme gruvbox-baby'

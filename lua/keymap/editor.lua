@@ -29,6 +29,13 @@ local plug_map = {
 	["n|<leader>xT"] = bind.map_cr("Trouble todo filter = {tag = {TODO,FIX,FIXME}}"):with_noremap():with_silent():with_desc("todo: Fix/Fixme (Trouble)"),
 	["n|<leader>st"] = bind.map_cr("TodoTelescope"):with_noremap():with_silent():with_desc("todo: Todo"),
 	["n|<leader>sT"] = bind.map_cr("TodoTelescope keywords=TODO,FIX,FIXME"):with_noremap():with_silent():with_desc("todo: Fix/Fixme"),
+  -- Plugin render-markdown.nvim
+	["n|<F1>"] = bind.map_cr("RenderMarkdown toggle")
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: toggle markdown preview within nvim"),
+	-- Plugin MarkdownPreview
+	["n|<F12>"] = bind.map_cr("MarkdownPreviewToggle"):with_noremap():with_silent():with_desc("tool: Preview markdown")
 }
 
 bind.nvim_load_mapping(plug_map)

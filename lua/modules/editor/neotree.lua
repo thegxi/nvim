@@ -191,6 +191,11 @@ return function()
       },
       nesting_rules = {},
       filesystem = {
+        bind_to_cwd = true,
+        cwd_target = {
+          sidebar = "tab", -- sidebar is when position = left or right
+          current = "window" -- current is when position = current 
+        },
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = true,
@@ -218,7 +223,7 @@ return function()
           },
         },
         follow_current_file = {
-          enabled = false, -- This will find and focus the file in the active buffer every time
+          enabled = true, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },

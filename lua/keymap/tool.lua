@@ -1,8 +1,6 @@
 local bind = require("keymap.bind")
 
 local plug_map = {
-  -- Plugin: conform.nvim
-  ["n|<leader>cF"] = bind.map_callback(function() require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 }) end):with_expr():with_desc("Format Injected Langs"),
   -- Plugin: trouble.nvim
 	["n|<leader>xx"] = bind.map_cr("Trouble diagnostics toggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>xX"] = bind.map_cr("Trouble diagnostics toggle filter.buf=0"):with_noremap():with_silent():with_desc("lsp: Buffer Diagnostics (Trouble)"),
@@ -34,8 +32,9 @@ local plug_map = {
   -- Telescope
   ["n|<leader>r"] = bind.map_cr("Telescope oldfiles"):with_noremap():with_silent():with_desc("Telescope: oldfiles"),
   ["n|<leader>D"] = bind.map_cr("Telescope diagnostics"):with_noremap():with_silent():with_desc("Telescope: diagnostics"),
-  ["n|<leader>f"] = bind.map_cr("Telescope resume"):with_noremap():with_silent():with_desc("Telescope: resume"),
-  ["n|<leader>ff"] = bind.map_cr("Telescope find_files"):with_noremap():with_silent():with_desc("Telescope: find_files"),
+  ["n|<leader>fl"] = bind.map_cr("Telescope live_grep"):with_noremap():with_silent():with_desc("Telescope: live_grep"),
+  -- ["n|<leader>fl"] = bind.map_cr("Telescope live_grep"):with_noremap():with_silent():with_desc("Telescope: resume"),
+  ["n|<leader>f"] = bind.map_cr("Telescope find_files"):with_noremap():with_silent():with_desc("Telescope: find_files"),
   ["n|<leader>fb"] = bind.map_cr("Telescope buffers"):with_noremap():with_silent():with_desc("Telescope: buffers"), 
   ["n|<leader>fw"] = bind.map_cr("lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor({postfix=''})"):with_noremap():with_silent():with_desc("Telescope: cursor"), 
   ["v|<leader>fw"] = bind.map_cr("lua require('telescope-live-grep-args.shortcuts').grep_visual_selection({postfix=''})"):with_noremap():with_silent():with_desc("Telescope: cursor"), 
@@ -62,6 +61,10 @@ local plug_map = {
   ["n|<leader>de"] = bind.map_cr("lua require('dapui').eval()"):with_noremap():with_silent():with_desc("Dap: eval"),
   ["n|<leader>d"] = bind.map_cr("lua require'dap'.run_last()"):with_noremap():with_silent():with_desc("Dap: run_last"),
 
+  -- none-ls
+  ["n|<leader>l"] = bind.map_callback(function() require("null-ls").get_server(0).format() end):with_noremap():with_silent():with_desc("Format: format file"),
+  ["i|<leader>l"] = bind.map_callback(function() require("null-ls").get_server(0).format() end):with_noremap():with_silent():with_desc("Format: format file"),
+
   -- toggleterm
   ["t|<Esc><Esc>"] = bind.map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["n|<C-\\>"] = bind.map_cr("ToggleTerm direction=horizontal") :with_noremap() :with_silent() :with_desc("terminal: Toggle horizontal"),
@@ -76,7 +79,10 @@ local plug_map = {
 	["n|<A-d>"] = bind.map_cr("ToggleTerm direction=float"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["i|<A-d>"] = bind.map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>") :with_noremap() :with_silent() :with_desc("terminal: Toggle float"),
 	["t|<A-d>"] = bind.map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
-	["n|<leader>tg"] = bind.map_callback(function() _toggle_lazygit() end) :with_noremap() :with_silent() :with_desc("git: Toggle lazygit"),
+  ["n|<leader>tg"] = bind.map_cr("lua require('toggleterm.terminal').Terminal:new({cmd = 'lazygit',direction = 'float'}):toggle()"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
+  ["n|<leader>tt"] = bind.map_cr("TermExec cmd='tig %' go_back=1 direction=float"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
+  ["n|<leader>tb"] = bind.map_cr("TermExec cmd='tig blame %' go_back=1 direction=float"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit"),
+  ["t|<c-q>"] = bind.map_cr("bd!"):with_noremap():with_silent():with_desc("Lazygit: terminal lazygit")
 }
 
 bind.nvim_load_mapping(plug_map)

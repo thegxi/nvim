@@ -69,16 +69,45 @@ return function()
     capabilities = capabilities,
     on_attach = on_attach
   })
+  -- clang
   nvim_lsp.clangd.setup({
     capabilities = capabilities,
     on_attach = on_attach
   })
+  -- python
   nvim_lsp.pyright.setup({
     capabilities = capabilities,
     on_attach = on_attach
   })
+  -- rust
   nvim_lsp.rust_analyzer.setup({
     capabilities = capabilities,
     on_attach = on_attach
+  })
+  -- css
+  nvim_lsp.cssls.setup({
+    capabilities = capabilities;
+    on_attach = on_attach;
+  })
+  -- html
+  nvim_lsp.html.setup({
+    capabilities = capabilities;
+    on_attach = on_attach;
+  })
+  -- java
+  nvim_lsp.jdtls.setup({
+    settings = {
+      java = {
+        configuration = {
+          runtimes = {
+            {
+              name = "OpenJDK-17",
+              path = "/usr/lib/jvm/java-17-openjdk",
+              default = true,
+            }
+          }
+        }
+      }
+    }
   })
 end

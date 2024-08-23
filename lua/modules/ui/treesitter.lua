@@ -5,6 +5,7 @@ return function()
     ensure_installed = {
       "bash",
       "c",
+      "css",
       "diff",
       "html",
       "java",

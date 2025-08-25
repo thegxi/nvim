@@ -10,6 +10,9 @@
         explorer = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
+        lazygit = {
+          enabled = true,
+        },
         notifier = {
           enabled = true,
           timeout = 3000,
@@ -49,6 +52,10 @@
         { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
         { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
         { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+        -- 快捷键打开 lazygit
+        { "<leader>gg", function() Snacks.lazygit().open() end, desc = "Lazygit" },
+        -- 在当前文件路径打开 lazygit
+        { "<leader>gG", function() Snacks.lazygit().open({ cwd = vim.fn.expand("%:p:h") }) end, desc = "Lazygit (cwd=file dir)" },
         -- Grep
         { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
@@ -58,7 +65,6 @@
         { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
         { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
         { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
-        { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
         { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
@@ -93,7 +99,6 @@
         { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
         { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
         { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
-        { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
         { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
         { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },

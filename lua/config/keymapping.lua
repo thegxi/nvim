@@ -1,3 +1,4 @@
+-- ================================= Snacks.nvim =================================
 vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Smart Find Files" })
 vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep" })
@@ -85,3 +86,9 @@ vim.keymap.set("n", "<leader>N",
     })
   end,
   { desc = "Neovim News" })
+
+-- ================================= Focus =================================
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move focus on left window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus on right window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus on below window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus on up window" })

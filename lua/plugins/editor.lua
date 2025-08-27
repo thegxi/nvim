@@ -104,7 +104,7 @@ return {
       require("Comment").setup()
     end,
   },
-  ------------------------------  highlight and search for todo comments like TODO, HACK, BUG in your code base ------------------------------ 
+  ------------------------------  Highlight and search for todo comments like TODO, HACK, BUG in your code base ------------------------------ 
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
@@ -117,5 +117,32 @@ return {
       { "<leader>sT", function() require("snacks").picker.todo_comments() end, desc = "[TODO] Pick todos (with NOTE)", },
     },
     config = true,
+  },
+  ------------------------------  The copy-pasta rabbit hole ------------------------------ 
+  {
+    "ibhagwan/smartyank.nvim",
+    event = { "BufWinEnter" },
+    opts = {
+      highlight = {
+        enabled = true, -- highlight yanked text
+        higroup = "IncSearch", -- highlight group of yanked text
+        timeout = 500, -- timeout for clearing the highlight
+      },
+      clipboard = {
+        enabled = true,
+      },
+      tmux = {
+        enabled = true,
+        -- remove `-w` to disable copy to host client's clipboard
+        cmd = { "tmux", "set-buffer", "-w" },
+      },
+      osc52 = {
+        enabled = true,
+        -- escseq = 'tmux',     -- use tmux escape sequence, only enable if you're using tmux and have issues (see #4)
+        ssh_only = true, -- false to OSC52 yank also in local sessions
+        silent = true, -- true to disable the "n chars copied" echo
+        echo_hl = "Directory", -- highlight group of the OSC52 echo message
+      },
+    },
   },
 }

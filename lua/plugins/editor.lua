@@ -44,4 +44,15 @@ return {
     event = "BufReadPost",  -- 打开文件后加载
     config = true,          -- 使用默认配置
   },
+  ------------------------------ Go forward/backward with square brackets ------------------------------ 
+  {
+    "echasnovski/mini.surround",
+    version = "*",
+    event = "BufReadPost",
+    config = true,
+    keys = {
+      -- Disable the vanilla `s` keybinding
+      { "s", "<NOP>", mode = { "n", "x", "o" } },
+    },
+  },
 }

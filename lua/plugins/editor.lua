@@ -87,5 +87,5 @@ return {
     opts={
         --Config goes here
     },
-}
+  }
 }

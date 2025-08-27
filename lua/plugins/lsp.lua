@@ -26,8 +26,6 @@ return {
       }
       -- require("snacks.debug").inspect(extra.capabilities)
 
-      utils.language_setup(G.language.lsp, extra)
-
       require("lspconfig").jsonls.setup({})
 
       -- require("lspconfig").ltex.setup({})
@@ -96,7 +94,7 @@ return {
     -- keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts_extend = { "ensure_installed" },
     opts = {
-      ensure_installed = { "lua_ls", "bashls", "marksman", "vale_ls", "pyright", "ruff", "taplo", "typst" },
+      ensure_installed = {},
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)

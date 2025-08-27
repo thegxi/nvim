@@ -96,7 +96,7 @@ return {
     -- keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts_extend = { "ensure_installed" },
     opts = {
-      ensure_installed = {},
+      ensure_installed = { "lua_ls", "bashls", "marksman", "vale_ls", "pyright", "ruff", "taplo", "typst" },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)

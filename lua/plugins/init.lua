@@ -1,4 +1,4 @@
 return {
-	{ import = "plugins.ui.ui" },
-	{ import = "plugins.tools.snacks" },
+	{ import = "plugins.ui" },
+	{ import = "plugins.snacks" },
 }

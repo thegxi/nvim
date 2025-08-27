@@ -55,4 +55,13 @@ return {
       { "s", "<NOP>", mode = { "n", "x", "o" } },
     },
   },
+  ------------------------------ Text edit operators ------------------------------ 
+  {
+    "echasnovski/mini.operators",
+    version = "*",
+    event = "BufReadPost",
+    opts = {
+      replace = { prefix = "cr" },
+    },
+  },
 }

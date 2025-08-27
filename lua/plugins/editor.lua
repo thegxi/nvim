@@ -23,4 +23,11 @@ return {
       end)
     end,
   },
+  ------------------------------ Go forward/backward with square brackets ------------------------------ 
+  {
+    "echasnovski/mini.bracketed",
+    version = "*",          -- 用最新稳定版
+    event = "BufReadPost",  -- 打开文件后加载
+    config = true,          -- 使用默认配置
+  },
 }

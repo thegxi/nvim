@@ -64,4 +64,19 @@ return {
       replace = { prefix = "cr" },
     },
   },
+  ------------------------------ Align text interactively ------------------------------ 
+  {
+    "echasnovski/mini.align",
+    version = "*",
+    event = "BufRead",
+    opts = {
+      mappings = {
+        start = "gA",
+        start_with_preview = "ga",
+      },
+    },
+    config = function(_, opts)
+      require("mini.align").setup(opts)
+    end,
+  },
 }

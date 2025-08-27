@@ -5,7 +5,7 @@ return {
     branch = "1.0",
     event = "BufReadPost",
      -- stylua: ignore
-   keys = {
+    keys = {
     -- Append/insert for each line of visual selections. Similar to block selection insertion.
     { "mI", function() require("multicursor-nvim").insertVisual() end, mode = "x", desc = "Insert cursors at visual selection" },
     { "mA", function() require("multicursor-nvim").appendVisual() end, mode = "x", desc = "Append cursors at visual selection" },

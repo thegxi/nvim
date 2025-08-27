@@ -333,4 +333,37 @@ return {
       configs.setup(opts)
     end,
   },
+  ------------------------------ Buffers ------------------------------ 
+  {
+    "romgrk/barbar.nvim",
+    version = "^1.0.0", -- optional: only update when a new 1.x version is released
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {
+      animation = false,
+      -- Automatically hide the tabline when there are this many buffers left.
+      -- Set to any value >=0 to enable.
+      auto_hide = 1,
+      -- Set the filetypes which barbar will offset itself for
+      sidebar_filetypes = {
+        -- Default values: {event = 'BufWinLeave', text = '', align = 'left'}
+        NvimTree = {
+          text = "NvimTree",
+          event = "BufWinLeave",
+        },
+        undotree = {
+          text = "UndoTree",
+        },
+      },
+    },
+    lazy = false,
+    -- event = { "VeryLazy" },
+    -- stylua: ignore
+    keys = {
+    },
+  },
 }

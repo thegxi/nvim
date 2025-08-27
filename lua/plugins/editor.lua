@@ -5,11 +5,6 @@ return {
     branch = "1.0",
     event = "BufReadPost",
      -- stylua: ignore
-    keys = {
-    -- Append/insert for each line of visual selections. Similar to block selection insertion.
-    { "mI", function() require("multicursor-nvim").insertVisual() end, mode = "x", desc = "Insert cursors at visual selection" },
-    { "mA", function() require("multicursor-nvim").appendVisual() end, mode = "x", desc = "Append cursors at visual selection" },
-   },
     config = function()
       local mc = require("multicursor-nvim")
       mc.setup()
@@ -91,15 +86,6 @@ return {
   ------------------------------ Code comment ------------------------------ 
   {
     "numToStr/Comment.nvim",
-    -- stylua: ignore
-    keys = {
-      { "<leader>/", function() require("Comment.api").toggle.linewise.current() end,                 mode = "n", desc = "[Comment] Comment current line", },
-      { "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = "v", desc = "Comment current line",           },
-      -- control + / keymappings
-      { "<C-_>",     function() require("Comment.api").toggle.linewise.current() end,                 mode = "n", desc = "[Comment] Comment current line", },
-      { "<C-_>",     "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = "v", desc = "Comment current line",           },
-
-    },
     config = function()
       require("Comment").setup()
     end,
@@ -109,13 +95,6 @@ return {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
     event = "BufReadPost",
-    -- stylua: ignore
-    keys = {
-      ---@diagnostic disable-next-line: undefined-field
-      { "<leader>st", function() require("snacks").picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "FIXIT", "HACK", "WARN", "ISSUE"  } }) end, desc = "[TODO] Pick todos (without NOTE)", },
-      ---@diagnostic disable-next-line: undefined-field
-      { "<leader>sT", function() require("snacks").picker.todo_comments() end, desc = "[TODO] Pick todos (with NOTE)", },
-    },
     config = true,
   },
   ------------------------------  The copy-pasta rabbit hole ------------------------------ 
@@ -160,42 +139,6 @@ return {
         char = {
           enabled = false,
         },
-      },
-    },
-    keys = {
-      -- stylua: ignore
-      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end,                                                                                               desc = "[Flash] Jump"              },
-      -- stylua: ignore
-      { "<leader>F", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,                                                                                         desc = "[Flash] Treesitter"        },
-      -- stylua: ignore
-      { "<leader>F", mode = { "o", "x" },      function() require("flash").treesitter_search() end,                                                                                  desc = "[Flash] Treesitter Search" },
-      -- stylua: ignore
-      { "<c-f>",     mode = { "c" },           function() require("flash").toggle() end,                                                                                             desc = "[Flash] Toggle Search"     },
-      {
-        "<leader>j",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump({
-            search = { mode = "search", max_length = 0 },
-            jump = { pos = "end" },
-            label = { after = { 0, 0 }, matches = false },
-            pattern = "^\\s*\\S\\?", -- match non-whitespace at start plus any character (ignores empty lines)
-          })
-        end,
-        desc = "[Flash] Line jump",
-      },
-      {
-        "<leader>k",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump({
-            search = { mode = "search", max_length = 0 },
-            jump = { pos = "end" },
-            label = { after = { 0, 0 }, matches = false },
-            pattern = "^\\s*\\S\\?", -- match non-whitespace at start plus any character (ignores empty lines)
-          })
-        end,
-        desc = "[Flash] Line jump",
       },
     },
   },

@@ -92,3 +92,33 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move focus on left window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus on right window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus on below window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus on up window" })
+-- ================================= Multi Cursor =================================
+vim.keymap.set("x", "mI", function() require("multicursor-nvim").insertVisual() end, { desc = "Insert cursors at visual selection" })
+vim.keymap.set("x", "mA", function() require("multicursor-nvim").appendVisual() end, { desc = "Append cursors at visual selection" })
+-- ================================= Comment =================================
+vim.keymap.set("n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "[Comment] Comment current line" })
+vim.keymap.set("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = "Comment current line" })
+vim.keymap.set("n", "<C-_>", function() require("Comment.api").toggle.linewise.current() end, { desc = "[Comment] Comment current line" })
+vim.keymap.set("v", "<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = "Comment current line" })
+-- ================================= Todo Comment =================================
+vim.keymap.set("n", "<leader>st", function() require("snacks").picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "FIXIT", "HACK", "WARN", "ISSUE"  } }) end, { desc = "[TODO] Pick todos (without NOTE)" })
+vim.keymap.set("n", "<leader>sT", function() require("snacks").picker.todo_comments() end, { desc = "[TODO] Pick todos (without NOTE)" })
+-- ================================= Flash =================================
+vim.keymap.set({ "n", "x", "o" }, "<leader>f", function() require("flash").jump() end, { desc = "[Flash] Jump" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>F", function() require("flash").treesitter() end, { desc = "[Flash] Treesitter" })
+vim.keymap.set({ "x", "o" }, "<leader>F", function() require("flash").treesitter_search() end, { desc = "[Flash] Treesitter Search" })
+vim.keymap.set("c", "<c-f>", function() require("flash").toggle() end, { desc = "[Flash] Toggle Search" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>j", function() require("flash").jump({
+            search = { mode = "search", max_length = 0 },
+            jump = { pos = "end" },
+            label = { after = { 0, 0 }, matches = false },
+            pattern = "^\\s*\\S\\?", -- match non-whitespace at start plus any character (ignores empty lines)
+          })
+ end, { desc = "[Flash] Line jump" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>k", function() require("flash").jump({
+            search = { mode = "search", max_length = 0 },
+            jump = { pos = "end" },
+            label = { after = { 0, 0 }, matches = false },
+            pattern = "^\\s*\\S\\?", -- match non-whitespace at start plus any character (ignores empty lines)
+          })
+ end, { desc = "[Flash] Line jump" })

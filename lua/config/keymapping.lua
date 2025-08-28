@@ -137,3 +137,7 @@ vim.keymap.set("n", "<A-9>", "<CMD>BufferGoto 9<CR>", { desc = "[Buffer] Go to b
 vim.keymap.set("n", "<A-h>", "<CMD>BufferPrevious<CR>", { desc = "[Buffer] Previous buffer" })
 vim.keymap.set("n", "<A-l>", "<CMD>BufferNext<CR>", { desc = "[Buffer] Next buffer" })
 vim.keymap.set("n", "<A-w>", "<CMD>BufferClose<CR>",  { desc = "Close buffer" })
+-- ================================= Yazi =================================
+vim.keymap.set({ "n", "v" }, "<leader>E", "<CMD>Yazi<CR>",  { desc = "[Yazi] open at the current file" })
+vim.keymap.set("n", "<leader>cw", "<CMD>Yazi cwd<CR>",  { desc = "[Yazi] open in working directory" })
+vim.keymap.set("n", "<c-up>", "<CMD>Yazi toggle<CR>",  { desc = "[Yazi] Resume the last session" })

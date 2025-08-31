@@ -7,8 +7,7 @@
       opts = {
         bigfile = { enabled = true },
         dashboard = { enabled = true },
-        explorer = { enabled = true },
-        file_explorer = { enabled = false },
+        explorer = { enabled = false },
         indent = { enabled = true },
         input = { enabled = true },
         lazygit = {

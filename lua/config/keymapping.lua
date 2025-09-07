@@ -96,7 +96,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus on up window" })
 vim.keymap.set("x", "mI", function() require("multicursor-nvim").insertVisual() end, { desc = "Insert cursors at visual selection" })
 vim.keymap.set("x", "mA", function() require("multicursor-nvim").appendVisual() end, { desc = "Append cursors at visual selection" })
 -- ================================= Comment =================================
-vim.keymap.set("n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "[Comment] Comment current line" })
+-- vim.keymap.set("n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "[Comment] Comment current line" })
 vim.keymap.set("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = "Comment current line" })
 vim.keymap.set("n", "<C-_>", function() require("Comment.api").toggle.linewise.current() end, { desc = "[Comment] Comment current line" })
 vim.keymap.set("v", "<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = "Comment current line" })

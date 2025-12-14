@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 opt.number = true
-opt.cusorline = true
+opt.cursorline = true
 
 opt.list = true
 opt.listchars = { tab = ">-", trail = "-" }

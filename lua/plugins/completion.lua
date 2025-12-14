@@ -2,7 +2,7 @@ return {
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    -- dependencies = { 'rafamadriz/friendly-snippets' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
 
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -60,7 +60,70 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = function()
+          local success, node = pcall(vim.treesitter.get_node)
+          if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+            return { "buffer" }
+          else
+            return { "lazydev", "copilot", "lsp", "path", "snippets", "buffer" }
+          end
+        end,
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 95,
+          },
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+            opts = {
+              kind_icon = "",
+              kind_hl = "DevIconCopilot",
+            },
+          },
+          path = {
+            score_offset = 95,
+            opts = {
+              get_cwd = function(_)
+                return vim.fn.getcwd()
+              end,
+            },
+          },
+          buffer = {
+            score_offset = 20,
+          },
+          lsp = {
+            -- Default
+            -- Filter text items from the LSP provider, since we have the buffer provider for that
+            transform_items = function(_, items)
+              return vim.tbl_filter(function(item)
+                return item.kind ~= require("blink.cmp.types").CompletionItemKind.Text
+              end, items)
+            end,
+            score_offset = 60,
+            fallbacks = { "buffer" },
+          },
+          -- Hide snippets after trigger character
+          -- Trigger characters are defined by the sources. For example, for Lua, the trigger characters are ., ", '.
+          snippets = {
+            score_offset = 70,
+            should_show_items = function(ctx)
+              return ctx.trigger.initial_kind ~= "trigger_character"
+            end,
+            fallbacks = { "buffer" },
+          },
+          cmdline = {
+            min_keyword_length = 2,
+            -- Ignores cmdline completions when executing shell commands
+            enabled = function()
+              return vim.fn.getcmdtype() ~= ":" or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
+            end,
+          },
+        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

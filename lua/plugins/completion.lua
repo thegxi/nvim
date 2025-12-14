@@ -1,11 +1,11 @@
 return {
   {
-    'saghen/blink.cmp',
+    "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
 
     -- use a release tag to download pre-built binaries
-    version = '1.*',
+    version = "1.*",
     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -55,7 +55,86 @@ return {
       },
 
       -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = false } },
+      completion = { 
+        -- NOTE: some LSPs may add auto brackets themselves anyway
+        accept = { auto_brackets = { enabled = true } },
+        list = { selection = { preselect = true, auto_insert = false } },
+        menu = {
+          border = "rounded",
+          max_height = 20,
+          draw = {
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+            components = {
+              kind_icon = {
+                ellipsis = false,
+                text = function(ctx)
+                  local icon = ctx.kind_icon
+                  if icon then
+                    -- Do nothing
+                  elseif vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      icon = dev_icon
+                    end
+                  else
+                    icon = require("lspkind").symbolic(ctx.kind, { mode = "symbol" })
+                  end
+                  return icon .. ctx.icon_gap
+                end,
+                -- Optionally, use the highlight groups from nvim-web-devicons
+                -- You can also add the same function for `kind.highlight` if you want to
+                -- keep the highlight groups in sync with the icons.
+                highlight = function(ctx)
+                  local hl = ctx.kind_hl
+                  if hl then
+                    -- Do nothing
+                  elseif vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      hl = dev_hl
+                    end
+                  end
+                  return hl
+                end,
+              },
+            },
+          },
+        },
+        documentation = {
+          auto_show = true,
+          -- Delay before showing the documentation window
+          auto_show_delay_ms = 200,
+          window = {
+            min_width = 10,
+            max_width = 120,
+            max_height = 20,
+            border = "rounded",
+            winblend = 0,
+            winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+            -- Note that the gutter will be disabled when border ~= 'none'
+            scrollbar = true,
+            -- Which directions to show the documentation window,
+            -- for each of the possible menu window directions,
+            -- falling back to the next direction when there's not enough space
+            direction_priority = {
+              menu_north = { "e", "w", "n", "s" },
+              menu_south = { "e", "w", "s", "n" },
+            },
+          },
+        },
+        -- Displays a preview of the selected item on the current line
+        ghost_text = {
+          enabled = true,
+          -- Show the ghost text when an item has been selected
+          show_with_selection = true,
+          -- Show the ghost text when no item has been selected, defaulting to the first item
+          show_without_selection = false,
+          -- Show the ghost text when the menu is open
+          show_with_menu = true,
+          -- Show the ghost text when the menu is closed
+          show_without_menu = true,
+        }
+      },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -65,26 +144,10 @@ return {
           if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
             return { "buffer" }
           else
-            return { "lazydev", "copilot", "lsp", "path", "snippets", "buffer" }
+            return { "lsp", "path", "snippets", "buffer" }
           end
         end,
         providers = {
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 95,
-          },
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
-            opts = {
-              kind_icon = "",
-              kind_hl = "DevIconCopilot",
-            },
-          },
           path = {
             score_offset = 95,
             opts = {
@@ -131,7 +194,44 @@ return {
       -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
       --
       -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      signature = {
+        enabled = true,
+        window = {
+          min_width = 1,
+          max_width = 100,
+          max_height = 10,
+          border = "single", -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
+          winblend = 0,
+          winhighlight = "Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder",
+          scrollbar = false, -- Note that the gutter will be disabled when border ~= 'none'
+          -- Which directions to show the window,
+          -- falling back to the next direction when there's not enough space,
+          -- or another window is in the way
+          direction_priority = { "n" },
+          -- Disable if you run into performance issues
+          treesitter_highlighting = true,
+          show_documentation = true,
+        },
+      },
+      cmdline = {
+        completion = {
+          menu = {
+            auto_show = true,
+          },
+        },
+        -- stylua: ignore
+        keymap = {
+          preset = "none",
+          ["<A-j>"] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, "fallback", },
+          ["<A-k>"] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, "fallback", },
+          ["<C-p>"] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, "fallback", },
+          ["<C-n>"] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, "fallback", },
+          ["<Tab>"] = { function(cmp) return cmp.accept() end, "fallback", },
+          ["<CR>"] = { function(cmp) if vim.fn.getcmdtype() == ":" then return cmp.accept_and_enter() end return false end, "fallback", },
+          ["<A-/>"] = { function(cmp) if cmp.is_menu_visible() then return cmp.hide() else return cmp.show() end end, "fallback", },
+        },
+      },
     },
     opts_extend = { "sources.default" }
   }

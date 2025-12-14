@@ -12,4 +12,8 @@ opt.softtabstop = 2
 opt.expandtab = true
 opt.smartindent = true
 
+opt.foldenable = true
+opt.foldmethod = "indent"
+opt.foldlevel = 99
+opt.foldnestmax = 10
 

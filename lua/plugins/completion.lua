@@ -26,7 +26,27 @@ return {
       -- C-k: Toggle signature help (if signature.enabled = true)
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = { preset = 'default' },
+      keymap = {
+        preset = "none",
+        ["<A-j>"] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, "fallback", },
+        ["<A-k>"] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, "fallback", },
+        ["<C-n>"] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, "fallback", },
+        ["<C-p>"] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, "fallback", },
+
+        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+
+        ["<Tab>"] = { function(cmp) return cmp.accept() end, "fallback", },
+        ["<CR>"] = { function(cmp) return cmp.accept() end, "fallback", },
+        -- Close current completion and insert a newline
+        ["<S-CR>"] = { function(cmp) cmp.hide() return false end, "fallback", },
+
+        -- Show/Remove completion
+        ["<A-/>"] = { function(cmp) if cmp.is_menu_visible() then return cmp.hide() else return cmp.show() end end, "fallback", },
+
+        ["<A-n>"] = { function(cmp) cmp.show({ providers = {"buffer"} }) end, },
+        ["<A-p>"] = { function(cmp) cmp.show({ providers = {"buffer"} }) end, }
+      },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

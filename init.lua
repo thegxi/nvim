@@ -1,8 +1,6 @@
+-- 设置空格为Leader键
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
-require("config.basic")
-require("config.keymaps")
-
-require("config.lazy")
-
+require("core.basic")
+require("core.lazy")
+require("core.keymap")

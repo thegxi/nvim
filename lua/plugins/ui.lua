@@ -1,20 +1,11 @@
-return {
-    { 
-        "datsfilipe/vesper.nvim",
-        config = function (_, opts)
-            require("vesper").setup({
-                transparent = false,
-                italics = {
-                    comments = true,
-                    keywords = true,
-                    functions = true,
-                    strings = true,
-                    variables = true,
-                },
-                overrides = {},
-                palette_overrides = {}
-            })
-            vim.cmd("colorscheme vesper")
-        end
-    },
+return  {
+  "sainnhe/gruvbox-material",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    -- Optionally configure and load the colorscheme
+    -- directly inside the plugin declaration.
+    vim.g.gruvbox_material_enable_italic = true
+    vim.cmd.colorscheme('gruvbox-material')
+  end
 }

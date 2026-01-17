@@ -1,29 +1,26 @@
 return {
-  "j-morano/buffer_manager.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim"
+  "akinsho/bufferline.nvim",
+  version = "*",
+  opts = {
+    options = {
+        diagnostics = "nvim_lsp",
+        diagnostics_indicator = function (_, _, diagnostics_dict, _)
+            local indicator = " "
+            for level, number in pairs(diagnostics_dict) do
+                local symbol
+                if level == "error" then
+                    symbol = " "
+                elseif level == "warning" then
+                    symbol = " "
+                else
+                    symbol = " "
+                end
+                indicator = indicator .. number .. symbol
+            end
+            return indicator
+        end
+    }
   },
-  config = function()
-    require("buffer_manager").setup({
-      select_menu_item_commands = {
-        v = {
-          key = "<C-v>",
-            command = "vsplit"
-          },
-          h = {
-            key = "<C-h>",
-            command = "split"
-          }
-      },
-      focus_alternate_buffer = false,
-      short_file_names = true,
-      short_term_names = true,
-      loop_nav = false,
-      highlight = 'Normal:BufferManagerBorder',
-      win_extra_options = {
-        winhighlight = 'Normal:BufferManagerNormal',
-      },
-      use_shortcuts = true,
-    })
-  end
+  lazy = false,
+  dependencies = "nvim-tree/nvim-web-devicons"
 }

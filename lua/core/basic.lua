@@ -16,7 +16,7 @@ opt.smartindent = true 		-- 智能c风格缩进
 -- 搜索
 opt.ignorecase = true       -- 搜索忽略大小写
 opt.smartcase = true        -- 若含大写字母则区分大小写
-opt.hlsearch = true         -- 高亮所有匹配项
+opt.hlsearch = false        -- 高亮所有匹配项(不在查找之后继续高亮匹配结果)
 opt.incsearch = true        -- 输入时即时高亮匹配
 
 -- 外观与显示

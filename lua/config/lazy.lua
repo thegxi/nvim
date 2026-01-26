@@ -13,8 +13,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = {
-        { import = "plugins" },
+  spec = {
+    { import = "plugins" },
+  },
+  performance = {
+    rtp = {
+      -- 热加载
+      reset = true,
     }
+  }
 })
 

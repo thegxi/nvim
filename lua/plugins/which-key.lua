@@ -4,14 +4,15 @@ return {
     require("which-key").setup({
       plugins = {
         spelling = {
-          enabled = true,
+          -- 禁用拼写建议
+          enabled = false,
           suggestions = 20,
         },
       },
-      delay = 400,
+      delay = 150,
+      timeout = 250,
       triggers = {
-        { "<auto>", mode = "nixsotc" },
-        { "a", mode = { "n", "v" } },
+        { "<leader>", mode = { "n", " v" }}
       },
     })
   end

@@ -1,8 +1,13 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ---@module 'render-markdown'
+    ---@module "render-markdown"
     ---@type render.md.UserConfig
-    opts = {}
+    opts = {},
+    config = function()
+      require("render-markdown").setup({
+        completions = { lsp = { enable = true }}
+      })
+    end
   }
 }

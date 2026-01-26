@@ -41,6 +41,7 @@ opt.hidden = true           -- 切换buffer时不强制保存
 opt.confirm = true          -- 对未保存/只读文件操作时提示
 opt.updatetime = 300        -- 文件写入间隔(毫秒)
 opt.timeoutlen = 500        -- 映射超时时间(毫秒)
+opt.ttimeoutlen = 50        -- 键码超时时间(毫秒)
 
 opt.clipboard = "unnamedplus" -- 寄存器设置
 

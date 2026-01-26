@@ -4,8 +4,7 @@ vim.keymap.set("i", "<c-q>", "<c-o>:q<CR>", { noremap = true, silent = true, des
 vim.keymap.set("i", "<a-q>", "<c-o>:q!<CR>", { noremap = true, silent = true, desc = "Save file"})
 vim.keymap.set("i", "<a-s>", "<c-o>:wq!<CR>", { noremap = true, silent = true, desc = "Force quit file"})
 vim.keymap.set("i", "jk", "<esc>", { noremap = true, silent = true, desc = "Normal mode"})
-vim.keymap.set("n", "<leader>p", '"_diwP', { noremap = true, silent = true, desc = "Delete current textobject patest content on there"})
-vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy content to system clipboard"})
+vim.keymap.set("n", "<leader>p", '"_diwP', { noremap = true, silent = true, desc = "Delete current textobject patest content on there"}) vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy content to system clipboard"})
 vim.keymap.set("v", "<leader>p", '"_dP', { noremap = true, silent = true, desc = "Delete selected text, patest content on there"})
 vim.keymap.set("v", "<leader>P", '"_d"+P', { noremap = true, silent = true, desc = "Delete selected text, patest content on there"})
 vim.keymap.set("n", "gj", '5j', { noremap = true, silent = true, desc = "Fast move down"})
@@ -91,7 +90,7 @@ vim.keymap.set("t", "<leader>ts", "<c-\\><c-n>", { noremap = true, silent = true
 vim.keymap.set("t", "<leader>ss", "<c-\\><c-n><c-w>k", { noremap = true, silent = true, desc = "Exit terminal" })
 
 -- markdown
-vim.keymap.set("i", "<leader>mp",
+vim.keymap.set("i", "<c-m>p",
   function()
     require("render-markdown").preview()
   end,

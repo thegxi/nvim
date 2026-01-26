@@ -89,3 +89,15 @@ vim.keymap.set("n", "<leader>tt", ":split | terminal<cr>i", { noremap = true, si
 vim.keymap.set("n", "<leader>tv", ":vsplit | terminal<cr>i", { noremap = true, silent = true, desc = "Open terminal" })
 vim.keymap.set("t", "<leader>ts", "<c-\\><c-n>", { noremap = true, silent = true, desc = "Exit terminal" })
 vim.keymap.set("t", "<leader>ss", "<c-\\><c-n><c-w>k", { noremap = true, silent = true, desc = "Exit terminal" })
+
+-- markdown
+vim.keymap.set("i", "<leader>mp",
+  function()
+    require("render-markdown").preview()
+  end,
+  { desc = "Show rendered buffer to the side"})
+vim.keymap.set("n", "<leader>mp",
+  function()
+    require("render-markdown").preview()
+  end,
+  { desc = "Show rendered buffer to the side"})

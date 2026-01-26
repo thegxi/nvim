@@ -43,6 +43,8 @@ return {
     },
     -- 命令模式补全
     cmdline = {
+      -- 命令行行为与默认模式一致
+      keymap = { preset = 'inherit' },
       completion = {
         menu = {
           auto_show = true

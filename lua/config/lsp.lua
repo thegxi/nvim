@@ -22,6 +22,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- 自动高亮你光标下内容的引用，并在光标移动时清除
     local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client.name == 'jdtls' then
+      map("<a-cr>", function()
+        vim.lsp.buf.code_action({
+          filter = function(action)
+            return action.title:find("Import") ~= nil
+          end
+        })
+      end, "Custom Import", { "n", "i" })
+    end
     if
       client
       and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)

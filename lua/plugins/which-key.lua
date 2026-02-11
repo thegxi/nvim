@@ -9,11 +9,12 @@ return {
           suggestions = 20,
         },
       },
-      delay = 150,
-      timeout = 250,
+      delay = 100,
+      timeout = 200,
       triggers = {
-        { "<leader>", mode = { "n", " v" }}
+        { "<leader>", mode = { "n", "v" }}
       },
     })
-  end
+  end,
+  dependencies = { 'nvim-mini/mini.icons', version = '*' }
 }

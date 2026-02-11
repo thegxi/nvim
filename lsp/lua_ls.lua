@@ -1,12 +1,15 @@
 return {
   cmd = { "lua-language-server" },
   filetypes = { "lua" },
-  -- 函数详细提示
+  root_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
   settings = {
     Lua = {
+      runtime = {
+        version = "LuaJIT"
+      },
       workspace = {
         library = {
-          vim.env.VIMRUNTIME
+          vim.env.VIRUNTIME
         }
       }
     }

@@ -7,17 +7,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     -- 设置一些快捷键，你可以使用这些快捷键进行LSP有关的操作
     -- 你需要安装 Telescope
-    map("grn", vim.lsp.buf.rename, "[R]ename")
-    map("grs", require("telescope").extensions.aerial.aerial, "LSP Symbols")
-    map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-    map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-    map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-    map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-    map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-    map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
-    map("grw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
-    map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
-    map("grh", vim.lsp.buf.hover, "Hover")
+    map("<leader>gn", vim.lsp.buf.rename, "[R]ename")
+    -- map("grs", require("telescope").extensions.aerial.aerial, "LSP Symbols")
+    map("<leader>ga", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+    map("<leader>gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+    map("<leader>gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+    map("<leader>gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+    map("<leader>gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+    map("<leader>go", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
+    map("<leader>gw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
+    map("<leader>gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
+    map("<leader>gh", vim.lsp.buf.hover, "Hover")
     local function client_supports_method(client, method, bufnr) return client:supports_method(method, bufnr) end
 
     -- 自动高亮你光标下内容的引用，并在光标移动时清除

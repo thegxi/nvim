@@ -115,3 +115,24 @@ map("n", "<leader>mp",
     require("render-markdown").preview()
   end,
   { desc = "Show rendered buffer to the side"})
+
+map("n", "<leader>oi", function()
+  vim.lsp.buf.code_action({
+    context = { only = { "source.organizeImports" } },
+    apply = true
+  })
+end, { desc = "Organize Imports" })
+
+-- Add missing import
+map("n", "<leader>ai", function()
+  vim.lsp.buf.code_action({
+    context = { 
+      only = { "source.addMissingImports" },
+      diagnostics = vim.lsp.diagnostic.get_line_diagnostics()
+    },
+    apply = true
+  })
+end, { desc = "Add Missing Imports" })
+
+-- File tree
+map("n", "<leader>-", ":NvimTreeToggle<cr>", { silent = true, desc = "Open File tree" })

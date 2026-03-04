@@ -7,4 +7,5 @@ require("config.lsp")
 vim.lsp.enable ("lua_ls")
 vim.lsp.enable ("html")
 vim.lsp.enable ("jdtls")
+vim.lsp.enable ("pyright")
 

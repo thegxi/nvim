@@ -1,3 +1,3 @@
 require("configs.options")
-require("configs.lazypack")
 require("configs.keymaps")
+require("configs.lsp")

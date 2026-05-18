@@ -29,5 +29,5 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move selection up
 map("n", "<leader><tab><tab>", "<cmd>tabnew<CR>", { desc = "新建标签页" })
 map("n", "<leader><tab>d", "<cmd>tabclose<CR>", { desc = "关闭当前标签页" })
 map("n", "<leader><tab>o", "<cmd>tabonly<CR>", { desc = "关闭其他标签页" })
-map("n", "<leader><tab>l", "<cmd>tabnext<CR>", { desc = "切换到下一个标签页" })
-map("n", "<leader><tab>h", "<cmd>tabprevious<CR>", { desc = "切换到上一个标签页" })
+map("n", "<leader><tab>n", "<cmd>tabnext<CR>", { desc = "切换到下一个标签页" })
+map("n", "<leader><tab>p", "<cmd>tabprevious<CR>", { desc = "切换到上一个标签页" })

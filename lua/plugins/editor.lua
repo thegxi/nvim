@@ -1,5 +1,16 @@
 -- Oil
-require("oil").setup()
+require("oil").setup({
+    columns = {
+        "icon"
+    },
+    win_options = {
+        cursorline = true,
+        signcolumn = "no",
+        wrap = false,
+        list = false,
+        conceallevel = 3
+    }
+})
 local function toggle_oil()
   local bufname = vim.api.nvim_buf_get_name(0)
   if vim.bo.filetype == "oil" then

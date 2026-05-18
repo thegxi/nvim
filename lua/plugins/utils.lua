@@ -121,3 +121,6 @@ map("c", "<a-s>", function()
   local flash = require("flash")
   flash.toggle()
 end)
+
+-- lazygit
+map("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })

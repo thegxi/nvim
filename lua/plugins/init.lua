@@ -26,7 +26,9 @@ M.plugins_list = {
     { src = "https://github.com/kylechui/nvim-surround" }, -- 快捷添加括号与引号
     { src = "https://github.com/folke/which-key.nvim" },   -- 快捷键显示
     { src = "https://github.com/Youthdreamer/obsess" },    -- 专注任务面板
-  },
+    { src = "https://github.com/kdheepak/lazygit.nvim" }, -- git
+    { src = "https://github.com/nvim-lua/plenary.nvim" } -- lazygit依赖
+  }
 }
 
 for _, group in pairs(M.plugins_list) do

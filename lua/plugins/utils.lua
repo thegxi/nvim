@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("User", {
       },
       ignore_lsp = true,
     })
-    vim.keymap.set("n", "<leader>fp", "<cmd>ProjectFzf<cr>")
+    vim.keymap.set("n", "<leader>fp", "<cmd>Project<cr>")
 
     -- which-key
     local wk = require("which-key")

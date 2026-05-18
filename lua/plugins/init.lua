@@ -15,7 +15,7 @@ M.plugins_list = {
     { src = "https://github.com/folke/tokyonight.nvim" }, -- 主题配色
     { src = "https://github.com/catppuccin/nvim" }, -- 主题配色
     { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- 文件图标
-    { src = "https://github.com/akinsho/bufferline.nvim" },     -- bufferline
+    { src = "https://github.com/akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }     -- bufferline
   },
   utils = {
     { src = "https://github.com/windwp/nvim-autopairs" },  -- 括号成对
@@ -26,8 +26,7 @@ M.plugins_list = {
     { src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x") }, -- 快捷添加括号与引号
     { src = "https://github.com/folke/which-key.nvim" },   -- 快捷键显示
     { src = "https://github.com/Youthdreamer/obsess" },    -- 专注任务面板
-    { src = "https://github.com/kdheepak/lazygit.nvim" }, -- git
-    { src = "https://github.com/nvim-lua/plenary.nvim" } -- lazygit依赖
+    { src = "https://github.com/kdheepak/lazygit.nvim", requires = "nvim-lua/plenary.nvim" } -- git
   }
 }
 

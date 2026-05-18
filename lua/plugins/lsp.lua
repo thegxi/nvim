@@ -1,7 +1,6 @@
 require("mason").setup({
     ui = {
-        icons = {
-            package_installed = "✓",
+        icons = { package_installed = "✓",
             package_pending = "➜",
             package_uninstalled = "✗"
         }
@@ -73,11 +72,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		-- 全键触发
-		-- vim.api.nvim_create_autocmd("InsertCharPre", {
-		--   callback = function()
-		--     vim.lsp.completion.get()
-		--   end,
-		-- })
+		vim.api.nvim_create_autocmd("InsertCharPre", {
+		  callback = function()
+		    vim.lsp.completion.get()
+		  end,
+		})
 
 		vim.keymap.set("n", "<leader>d", function()
 			vim.diagnostic.open_float()

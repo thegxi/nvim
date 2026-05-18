@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd("InsertEnter", {
         --     <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
         --     delete(functi*on calls)     dsf             function calls
     })
+    -- rainbow-delimiters
+    require('rainbow-delimiters.setup').setup{}
   end,
 })
 

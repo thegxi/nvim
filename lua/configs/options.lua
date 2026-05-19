@@ -1,4 +1,3 @@
-
 local cache_dir = vim.fn.stdpath("cache")
 local vim_path = vim.uv.fs_realpath(vim.fn.stdpath("config"))
 local options = {
@@ -21,7 +20,7 @@ local options = {
 	breakat = [[\ \ ;:,!?@*-+/]],
 	linebreak = true,
 	-- 剪切板设置
-	clipboard = unnamedplus,
+	clipboard = "unnamedplus",
 	-- 底部命令行高度
 	-- cmdheight = 1,
 	-- 1: 底部永远留一行
@@ -80,7 +79,7 @@ local options = {
 	foldenable = true,
 	-- 折叠层级
 	foldlevelstart = 99,
-	-- 折叠方式 
+	-- 折叠方式
 	-- manual: 手动
 	-- indent: 按缩进
 	-- syntax: 按语法
@@ -88,8 +87,8 @@ local options = {
 	-- marker: marker注释
 	-- treesitter: treesitter插件
 	foldmethod = "expr",
-    -- 使用treesitter表达式折叠
-    foldexpr = "nvim_treesitter#foldexpr()",
+	-- 使用treesitter表达式折叠
+	foldexpr = "nvim_treesitter#foldexpr()",
 	-- 如何我解析grep输出格式
 	-- %f: 文件名
 	-- %l: 行号
@@ -136,7 +135,7 @@ local options = {
 	-- 补全菜单最大高度
 	pumheight = 15,
 	-- 屏幕重绘超时时间
-	redrawtime = 1500,	
+	redrawtime = 1500,
 	-- 右下角显示光标位置信息
 	ruler = true,
 	-- 光标上下保留行数
@@ -316,7 +315,7 @@ local options = {
 	-- 是否持久化undo
 	undofile = true,
 	-- 长行是否视觉换行
-	wrap = false
+	wrap = false,
 }
 
 local function load_options()

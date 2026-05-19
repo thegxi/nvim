@@ -101,7 +101,6 @@ local options = {
 	-- 未保存buffer是否允许被隐藏
 	hidden = true,
 	history = 2000,
-	ignorecase = true,
 	incsearch = true,
 	infercase = true,
 	-- 控制jump行为的细节

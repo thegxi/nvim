@@ -15,7 +15,7 @@ M.plugins_list = {
 		{ src = "https://github.com/folke/tokyonight.nvim" }, -- 主题配色
 		{ src = "https://github.com/catppuccin/nvim" }, -- 主题配色
 		{ src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- 文件图标
-		{ src = "https://github.com/akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }, -- bufferline
+		{ src = "https://github.com/akinsho/bufferline.nvim", tag = "*" }, -- bufferline
 	},
 	utils = {
 		{ src = "https://github.com/windwp/nvim-autopairs" }, -- 括号成对
@@ -37,12 +37,14 @@ for _, group in pairs(M.plugins_list) do
 	vim.list_extend(install_list, group)
 end
 
-vim.pack.add(install_list, { load = false })
+-- vim.pack.add(install_list, { load = false })
+vim.pack.add(install_list)
 
 vim.cmd([[colorscheme tokyonight-storm]])
 
 require("plugins.editor")
 require("plugins.lsp")
 require("plugins.utils")
+require("plugins.ui")
 
 return M
